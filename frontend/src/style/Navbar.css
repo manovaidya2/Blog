@@ -1,0 +1,139 @@
+.navbar {
+  background-color: #001f3f;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.logo-text p {
+  font-size: 10px;
+  line-height: 12px;
+  margin: 0;
+}
+
+.navbar-middle {
+  display: flex;
+  align-items: center;
+}
+
+.submit-btn {
+  margin-right: 20px;
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.navbar-middle a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.login-btn {
+  border: 1px solid white;
+  background: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search-btn {
+  background-color: #003366;     /* Circle background */
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;            /* Makes it a perfect circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;             /* Space to the left of login button */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+  background-color: #004080;
+}
+
+.search-icon {
+  font-size: 16px;
+}
+
+.submit-btn1 {
+  border: 1px solid white;
+  background: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #01294c;
+  min-width: 160px;
+  z-index: 1000;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.dropdown-content a:hover {
+  background-color: #014b88;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

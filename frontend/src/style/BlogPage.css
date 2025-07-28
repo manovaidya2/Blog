@@ -1,0 +1,116 @@
+/* BlogPage.css */
+.blog-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 60px;
+  background: url('../image/Home.jpg') no-repeat center center; /* replace with your image */
+  background-size: cover;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+.blog-left {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.blog-card {
+  display: flex;
+  gap: 20px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.blog-card {
+  border-color: #030303;
+}
+
+.blog-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.blog-content {
+  flex: 1;
+}
+
+.blog-content .meta {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.blog-content h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #111;
+}
+
+.blog-content p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.5;
+}
+
+.tags {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.tag {
+  background: #002855;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: default;
+}
+
+.blog-right {
+    background-color: #ececec;
+  width: 30%;
+  padding-left: 20px;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.top-researched h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.top-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 12px;
+}
+
+.top-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0 0 5px;
+  color: #002855;
+}
+
+.top-desc {
+  font-size: 14px;
+  color: #555;
+  margin: 0 0 4px;
+}
+
+.top-meta {
+  font-size: 12px;
+  color: #888;
+}
