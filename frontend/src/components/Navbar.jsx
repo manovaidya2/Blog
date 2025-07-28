@@ -60,6 +60,10 @@ const Navbar = () => {
           <a className="mobile-link" href="#">
             Latest Articles
           </a>
+          <a className="mobile-link" href="/">
+  Home
+</a>
+
 
           <div className="mobile-dropdown">
             <span className="mobile-dropbtn" onClick={() => toggleDropdown("about")}>
@@ -67,10 +71,10 @@ const Navbar = () => {
             </span>
             {openDropdown === "about" && (
               <div className="mobile-dropdown-content">
-                <a href="#">Who We Are</a>
-                <a href="#">Our Mission</a>
-                <a href="#">Advisory Board</a>
-                <a href="#">Contact Us</a>
+              <a href="/about-this">About This Journal</a>
+               <a href="/editorial-board">Editorial Board</a>
+                
+               
               </div>
             )}
           </div>
@@ -82,8 +86,9 @@ const Navbar = () => {
             {openDropdown === "guidelines" && (
               <div className="mobile-dropdown-content">
                 <Link to="/author-guidelines">Author</Link>
-                <a href="#">Reviewers</a>
-                <a href="#">Editor</a>
+              <Link to="/reviewer-guidelines">Reviewers</Link>
+               <a href="/editor-guidelines">Editor</a>
+
               </div>
             )}
           </div>
@@ -106,6 +111,9 @@ const Navbar = () => {
 
       <div className="navbar-middle desktop-only">
         <button className="submit-btn1">Submit Manuscript</button>
+  <a className="mobile-link" href="/">
+  Home
+</a>
 
         <div className="dropdown">
           <span className="dropbtn">Journals ▾</span>
@@ -121,8 +129,9 @@ const Navbar = () => {
         <div className="dropdown">
           <span className="dropbtn">About ▾</span>
           <div className="dropdown-content">
-            <a href="#">Who We Are</a>
-            <a href="#">Our Mission</a>
+           <a href="/about-this">About This Journal</a>
+
+            <a href="/editorial-board">Editorial Board</a>
             <a href="#">Advisory Board</a>
             <a href="#">Contact Us</a>
           </div>
@@ -132,8 +141,9 @@ const Navbar = () => {
           <span className="dropbtn">Guidelines ▾</span>
           <div className="dropdown-content">
             <Link to="/author-guidelines">Author</Link>
-            <a href="#">Reviewers</a>
-            <a href="#">Editor</a>
+           <Link to="/reviewer-guidelines">Reviewers</Link>
+            <a href="/editor-guidelines">Editor</a>
+
           </div>
         </div>
       </div>
