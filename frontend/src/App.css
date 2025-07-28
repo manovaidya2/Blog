@@ -4,6 +4,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html,
 body {
+  width: 100%;
+  height: 100%;
   background-color: #111;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* If you're using a root app container */
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }

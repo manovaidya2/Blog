@@ -54,3 +54,52 @@
   border-radius: 6px;
   cursor: pointer;
 }
+
+
+@media screen and (max-width: 768px) {
+  .hero {
+    height: 50vh;
+    padding: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .hero-overlay {
+    position: relative;
+    top: auto;
+    left: auto;
+    padding: 20px;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .hero-overlay h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .hero-overlay p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .explore-btn {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-overlay h1 {
+    font-size: 22px;
+  }
+
+  .hero-overlay p {
+    font-size: 13px;
+  }
+
+  .explore-btn {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+}

@@ -1,0 +1,97 @@
+/* Top Gradient Header */
+.author-hero {
+  background: linear-gradient(to right, #1d3a56, #f8f8f8);
+  padding: 60px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.hero-content {
+  max-width: 800px;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.hero-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #cfd8e0;
+}
+
+/* Content Section */
+.author-guidelines-section {
+  min-height: 100vh; /* full viewport height */
+  padding: 30px;
+  font-family: 'Segoe UI', sans-serif;
+   
+  background-image: url('../image/home.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; /* full coverage */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.author-guidelines-content {
+  max-width: 720px;
+}
+
+.author-guidelines-content h2 {
+  font-size: 24px;
+  color: #1d3a56;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.author-guidelines-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+
+.author-top-strip {
+  width: 100%;
+  background-color: #fff;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.issue-label {
+  padding: 6px 12px;
+  border: 2px solid #707070;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #616161;
+  font-size: 14px;
+  background: transparent;
+}
+
+.search-journal-button {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 2px solid #565656;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: #636363;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.search-journal-button:hover {
+  background: #000;
+  color: #fff;
+}

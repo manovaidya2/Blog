@@ -1,15 +1,21 @@
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import Footer from './components/Footer'; // ⬅️ import this
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import AuthorGuidelines from './pages/AuthorGuidelines';
+import './App.css';
 function App() {
   return (
-    <>
-      <Navbar />
-      <Home />
-      <Footer /> {/* ⬅️ Add this */}
-    </>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/author-guidelines" element={<AuthorGuidelines />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 

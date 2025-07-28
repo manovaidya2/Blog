@@ -1,4 +1,8 @@
 .navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+ 
   background-color: #001f3f;
   color: white;
   display: flex;
@@ -6,7 +10,10 @@
   padding: 15px 30px;
   align-items: center;
   font-family: 'Segoe UI', sans-serif;
+  z-index: 999; /* ensures it stays above other content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* optional shadow for depth */
 }
+
 
 .logo {
   display: flex;
@@ -136,4 +143,228 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .navbar-mobile-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #001f3f;
+    width: 100%;
+    padding: 10px 20px;
+  }
+
+
+
+  .mobile-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-middle {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    background-color: #01294c;
+    padding: 10px 0;
+  }
+
+  .navbar-middle.active {
+    display: flex;
+  }
+
+  .navbar-middle a,
+  .navbar-middle .dropbtn,
+  .submit-btn1 {
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    background-color: #01294c;
+  }
+}
+
+/* Mobile sidebar */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 75%;
+  height: 100vh;
+  background-color: white;
+  padding: 20px;
+  transition: left 0.3s ease-in-out;
+  z-index: 999;
+  overflow-y: auto; /* Allows scrolling */
+}
+
+.mobile-sidebar.open {
+  left: 0;
+}
+
+
+
+/* Visibility helpers */
+.desktop-only {
+  display: none;
+}
+
+.mobile-only {
+  display: flex;
+}
+
+/* Media Query to switch layout */
+@media screen and (min-width: 768px) {
+  .desktop-only {
+    display: flex !important;
+  }
+
+  .mobile-only,
+  .mobile-sidebar {
+    display: none !important;
+  }
+}
+
+
+.mobile-logo-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-logo-text strong {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.mobile-logo-text p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+
+/* Sidebar Overlay Background */
+.mobile-sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.mobile-sidebar-overlay.open {
+  left: 0;
+}
+
+/* Sidebar Content */
+.mobile-sidebar-content {
+  background: white;
+  width: 280px;
+  height: 100%;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Header with Close Button */
+.mobile-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Close Button */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Buttons and Links */
+.mobile-submit-btn,
+.mobile-login-btn {
+  width: 100%;
+  background-color: #0077cc;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.mobile-link,
+.mobile-dropbtn {
+  display: block;
+  font-size: 16px;
+  padding: 10px 0;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Dropdown Content */
+.mobile-dropdown-content {
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.mobile-dropdown-content a {
+  display: block;
+  font-size: 15px;
+  padding: 6px 0;
+  color: #666;
+  text-decoration: none;
+}
+
+.mobile-dropdown-content a:hover {
+  color: #0077cc;
+}
+
+
+.mobile-dropdown-content {
+  padding-left: 10px;
+  margin-bottom: 10px;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
