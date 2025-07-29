@@ -1,0 +1,105 @@
+.home1 {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.hero1 {
+  height: 60vh;
+  background-image: 
+    linear-gradient(
+      to right,
+      rgba(7, 13, 26, 0.85) 0%,         /* Stage 1: Deep navy black */
+      rgba(8, 14, 55, 0.3) 50%,         /* Stage 2: Muted blue center */
+      rgba(255, 255, 255, 0.1) 100%     /* Stage 3: Very soft white */
+    ),
+    url('../image/Rectangle.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+
+
+
+.hero-overlay1 {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  color: white;
+  max-width: 600px;
+}
+
+.hero-overlay1 h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.hero-overlay1 p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.explore-btn1 {
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  padding: 12px 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+  .hero {
+    height: 50vh;
+    padding: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .hero-overlay {
+    position: relative;
+    top: auto;
+    left: auto;
+    padding: 20px;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .hero-overlay h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .hero-overlay p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .explore-btn {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-overlay h1 {
+    font-size: 22px;
+  }
+
+  .hero-overlay p {
+    font-size: 13px;
+  }
+
+  .explore-btn {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+}

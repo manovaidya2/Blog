@@ -4,12 +4,14 @@ const cors = require("cors");
 require("dotenv").config();
 const authRoutes = require("./routes/authRoutes");
 const submissionRoutes = require("./routes/submissionRoutes");
+const journalRoutes = require("./routes/journalRoutes");
+const blogsRoutes = require("./Routes/blogRoutes")
 
 const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ["http://localhost:5173", "https://your-frontend-url.com"],
+  origin: ["http://localhost:5173", "https://your-frontend-url.com","http://localhost:5174"],
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true,
 }));
@@ -23,6 +25,9 @@ app.get("/", (req, res) => {
 // Auth Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/submissions", submissionRoutes);
+app.use("/api/journals", journalRoutes);
+app.use("/api/blogs",blogsRoutes)
+
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)

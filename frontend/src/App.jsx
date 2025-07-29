@@ -14,6 +14,9 @@ import PublicationEthics from './about/PublicationEthics';
 import Abstracting from './about/Abstracting';
 import ArticleProcessing from './about/ArticleProcessing';
 import Login from './components/Login';
+import LatestBlog from './pages/LatestBlog';
+import Journal from './journals/Journal';
+import JournalBlogPage from './pages/JournalBlogPage';
 
 
 import './App.css';
@@ -34,6 +37,10 @@ function App() {
           <Route path='/abstracting' element={<Abstracting/>} />
           <Route path='/article-processing' element={<ArticleProcessing/> } />
           <Route path="/auth" element={<Login />} />
+          <Route path="/latest-blog" element={<LatestBlog/>}  />
+           {/* <Route path="/journal" element={<Journal/>}  /> */}
+           
+            <Route path="/journal/:journalId" element={<Journal />} />
 
         </Routes>
       </Layout>

@@ -1,0 +1,49 @@
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  flex-direction: row;
+}
+
+.main-content {
+  flex-grow: 1;
+  margin-left: 240px; /* default sidebar width */
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease;
+}
+
+.page-container {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* Handle mobile view */
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .main-content {
+    margin-left: 0; /* remove margin to allow full width */
+  }
+
+  .sidebar {
+    position: fixed;
+    transform: translateX(-100%);
+    width: 240px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    transform: translateX(0); /* slide in */
+  }
+
+  .sidebar-collapse {
+    display: none; /* hide collapse button on mobile */
+  }
+}

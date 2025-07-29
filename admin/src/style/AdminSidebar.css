@@ -1,0 +1,30 @@
+.admin-sidebar {
+  width: 220px;
+  height: 100vh;
+  background: #1a1a2e;
+  color: white;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebar-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0.7rem 0;
+  text-decoration: none;
+  gap: 0.5rem;
+  transition: 0.3s;
+}
+
+.sidebar-nav a:hover {
+  background-color: #16213e;
+  padding-left: 1rem;
+}

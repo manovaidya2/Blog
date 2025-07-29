@@ -1,0 +1,145 @@
+.sidebar {
+  width: 240px;
+  background-color: #0f172a;
+  color: #fff;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #1e293b;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar.collapsed .sidebar-title,
+.sidebar.collapsed .sidebar-links a {
+  display: none;
+}
+
+.sidebar-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #1e293b;
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.sidebar-links li {
+  padding: 14px 20px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-links li:hover {
+  background-color: #1e293b;
+}
+
+.sidebar-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+}
+
+/* Toggle button */
+.sidebar-toggle,
+.sidebar-collapse {
+  position: fixed;
+  top: 16px;
+  z-index: 1100;
+  background: #0f172a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.sidebar-toggle {
+  left: 16px;
+  display: none;
+}
+
+.sidebar-collapse {
+  right: 16px;
+}
+
+/* Show toggle on mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .sidebar-collapse {
+    display: none;
+  }
+}
+
+
+.sidebar-toggle {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1100;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: white;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .admin-content {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+.sidebar-toggle-mobile {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  display: none;
+  margin-left: 16px;
+}
+
+@media (max-width: 768px) {
+  .sidebar-toggle-mobile {
+    display: block;
+  }
+}

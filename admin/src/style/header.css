@@ -1,0 +1,41 @@
+/* header.css */
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1e293b;
+  color: white;
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 60px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.admin-title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* Sidebar toggle icon (hamburger) - hidden on desktop */
+.sidebar-toggle-mobile {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  display: none;
+  cursor: pointer;
+}
+
+/* Show toggle only on small screens */
+@media screen and (max-width: 768px) {
+  .sidebar-toggle-mobile {
+    display: block;
+  }
+
+  .admin-title {
+    font-size: 1.2rem;
+  }
+}

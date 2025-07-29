@@ -1,0 +1,144 @@
+.dashboard {
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.dashboard-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Stat Cards */
+.dashboard-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  flex: 1 1 220px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+  gap: 15px;
+}
+
+.stat-icon {
+  font-size: 30px;
+  color: #555;
+}
+
+.stat-icon.green {
+  color: #2ecc71;
+}
+
+.stat-icon.yellow {
+  color: #f1c40f;
+}
+
+.stat-icon.blue {
+  color: #3498db;
+}
+
+/* Charts */
+.chart-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+  flex: 1;
+  min-width: 300px;
+}
+
+.dashboard-charts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* Bottom Sections */
+.dashboard-bottom {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.recent-posts,
+.top-authors {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+.recent-posts ul,
+.top-authors ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.recent-posts li,
+.top-authors li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.recent-posts li span {
+  float: right;
+  color: #888;
+  font-size: 14px;
+}
+
+/* 📱 Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 15px;
+  }
+
+  .dashboard-title {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .dashboard-stats,
+  .dashboard-charts,
+  .dashboard-bottom {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+ .chart-box,
+.recent-posts,
+.top-authors {
+  flex: 1 1 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+
+  .stat-card {
+    justify-content: flex-start;
+    padding: 15px;
+  }
+
+  .stat-icon {
+    font-size: 24px;
+  }
+
+  .recent-posts li span {
+    float: none;
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+  }
+}
