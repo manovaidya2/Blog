@@ -9,9 +9,15 @@ import ReviewerGuidelines from './pages/ReviewerGuidelines';
 import EditorGuidelines from './pages/EditorGuidelines';
 import AboutThis from './about/AboutThis'; 
 import EditorialBoard from './about/EditorialBoard';
+import PeerReviewer from './about/PeerReviewer';
+import PublicationEthics from './about/PublicationEthics';
+import Abstracting from './about/Abstracting';
+import ArticleProcessing from './about/ArticleProcessing';
+import Login from './components/Login';
 
 
 import './App.css';
+
 function App() {
   return (
     <Router>
@@ -23,6 +29,12 @@ function App() {
           <Route path="/editor-guidelines" element={<EditorGuidelines />} />
           <Route path="/about-this" element={<AboutThis />} />
           <Route path="/editorial-board" element={<EditorialBoard />} />
+          <Route path="/peer-reviewer" element={<PeerReviewer />} />
+          <Route path="/publication-ethics" element={<PublicationEthics/>} />
+          <Route path='/abstracting' element={<Abstracting/>} />
+          <Route path='/article-processing' element={<ArticleProcessing/> } />
+          <Route path="/auth" element={<Login />} />
+
         </Routes>
       </Layout>
     </Router>

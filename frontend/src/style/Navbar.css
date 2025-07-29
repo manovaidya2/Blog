@@ -368,3 +368,91 @@
   from { opacity: 0; transform: translateY(-5px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+
+/* Updated dropdown container */
+.dropdown-wide {
+  position: relative;
+  display: inline-block;
+}
+
+/* Updated dropdown content */
+.dropdown-content-wide {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 260px; /* Increased width */
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  white-space: nowrap; /* Prevent line breaks */
+  padding: 10px 0;
+}
+
+.dropdown-wide:hover .dropdown-content-wide {
+  display: block;
+}
+
+/* Optional: style for links inside dropdown */
+.dropdown-content-wide a {
+  color: #333;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+}
+
+.dropdown-content-wide a:hover {
+  background-color: #f1f1f1;
+}
+
+
+
+
+
+@keyframes popUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-name {
+  cursor: pointer;
+  padding: 6px 12px;
+
+  border-radius: 4px;
+}
+
+.dropdown-logout {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100px;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 8px;
+  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.dropdown-logout button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 14px;
+}
+
+.dropdown-logout button:hover {
+  text-decoration: underline;
+}

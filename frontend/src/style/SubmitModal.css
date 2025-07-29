@@ -1,0 +1,136 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: url('../image/home.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 20px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 700px;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  height: 520px;
+  color: white;
+  backdrop-filter: blur(4px);
+}
+
+.modal-box h2 {
+  color: black;
+}
+
+.modal-box p {
+  color: black;
+  margin-bottom: 10px;
+}
+
+.upload-plus {
+  color: black;
+}
+
+.close-button {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.form-grid input {
+  flex: 1 1 45%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.upload-box {
+  border: 2px dashed #ccc;
+  padding: 20px 20px;
+  text-align: center;
+  margin: 10px 0;
+  border-radius: 12px;
+  position: relative;
+}
+
+.upload-box input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.upload-plus {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.submit-btn {
+  width: 100%;
+  background: #00274d;
+  color: #fff;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ✅ Responsive tweaks for mobile screens only */
+@media (max-width: 768px) {
+  .modal-box {
+    width: 95%;
+    height: auto;
+    padding: 16px;
+    overflow-y: auto;
+    max-height: 90vh;
+  }
+
+  .form-grid {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-grid input {
+    flex: 1 1 100%;
+  }
+
+  .close-button {
+    top: 10px;
+    right: 14px;
+    font-size: 20px;
+  }
+
+  .submit-btn {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .upload-box {
+    padding: 16px;
+  }
+
+  .upload-plus {
+    font-size: 24px;
+  }
+}
