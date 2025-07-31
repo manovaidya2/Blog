@@ -192,3 +192,46 @@
   font-size: 0.8rem;
   color: #888;
 }
+
+.blog-content h3 a {
+  color: #000;              /* Make text black */
+  text-decoration: none;    /* Remove underline */
+  transition: all 0.3s ease;
+}
+
+.blog-content h3 a:hover {
+  color: #0b1f3a;           /* Dark navy on hover (or customize) */
+  text-decoration: underline;
+}
+
+
+.top-title {
+  
+  font-weight: 600;
+  color: #000; /* black */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.top-title:hover {
+  color: #0b1f3a;           /* Dark blue on hover */
+  text-decoration: underline;
+}
+
+
+.top-item a {
+  text-decoration: none;  /* Remove underline from link */
+}
+
+.top-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;             /* Ensure text is black */
+  margin: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.top-title:hover {
+  color: #0b1f3a;          /* Subtle hover effect */
+  text-decoration: underline; /* Optional: underline on hover */
+}

@@ -1,32 +1,76 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import {
+  FaAngleDoubleLeft,
+  FaAngleDoubleRight,
+  FaTachometerAlt,
+  FaBook,
+  FaPenNib,
+  FaUserEdit,
+  FaUserCheck,
+  FaFolderOpen,
+  FaCog,
+} from "react-icons/fa";
 import "../style/sidebar.css";
 
 const Sidebar = ({ isCollapsed, toggleCollapse, isOpen }) => {
   return (
     <>
-      {/* Collapse/Expand Icon (Desktop) */}
+      {/* Collapse/Expand Icon */}
       <button className="sidebar-collapse" onClick={toggleCollapse}>
         {isCollapsed ? <FaAngleDoubleRight /> : <FaAngleDoubleLeft />}
       </button>
 
-      {/* Sidebar */}
       <div
         className={`sidebar ${isOpen ? "open" : ""} ${
           isCollapsed ? "collapsed" : ""
         }`}
       >
         {!isCollapsed && <h2 className="sidebar-title">Admin Panel</h2>}
-        <ul className="sidebar-links">
-          <li><Link to="/">Dashboard</Link></li>
-       <li><Link to="/admin/journals">Journals</Link></li>
 
-          <li><Link to="/admin/blogs">Admin Blog</Link></li>
-          <li><Link to="/admin/editors">Editors</Link></li>
-          <li><Link to="/admin/reviewers">Reviewers</Link></li>
-          <li><Link to="/admin/issues">Issues</Link></li>
-          <li><Link to="/admin/settings">Settings</Link></li>
+        <ul className="sidebar-links">
+          <li>
+            <NavLink to="/" className={({ isActive }) => isActive ? "active-link" : ""}>
+              <FaTachometerAlt className="icon" />
+              {!isCollapsed && <span>Dashboard</span>}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/admin/journals" className={({ isActive }) => isActive ? "active-link" : ""}>
+              <FaBook className="icon" />
+              {!isCollapsed && <span>Journals</span>}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/admin/blogs" className={({ isActive }) => isActive ? "active-link" : ""}>
+              <FaPenNib className="icon" />
+              {!isCollapsed && <span>Admin Blog</span>}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/latest/blogs" className={({ isActive }) => isActive ? "active-link" : ""}>
+              <FaUserEdit className="icon" />
+              {!isCollapsed && <span>Latest Blog</span>}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/admin/reviewers" className={({ isActive }) => isActive ? "active-link" : ""}>
+              <FaUserCheck className="icon" />
+              {!isCollapsed && <span>Reviewers</span>}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/admin/issues" className={({ isActive }) => isActive ? "active-link" : ""}>
+              <FaFolderOpen className="icon" />
+              {!isCollapsed && <span>Issues</span>}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/admin/settings" className={({ isActive }) => isActive ? "active-link" : ""}>
+              <FaCog className="icon" />
+              {!isCollapsed && <span>Settings</span>}
+            </NavLink>
+          </li>
         </ul>
       </div>
     </>

@@ -17,7 +17,7 @@ import Login from './components/Login';
 import LatestBlog from './pages/LatestBlog';
 import Journal from './journals/Journal';
 import JournalBlogPage from './pages/JournalBlogPage';
-
+import BlogDetail from "./journals/BlogDetail";
 
 import './App.css';
 
@@ -39,7 +39,7 @@ function App() {
           <Route path="/auth" element={<Login />} />
           <Route path="/latest-blog" element={<LatestBlog/>}  />
            {/* <Route path="/journal" element={<Journal/>}  /> */}
-           
+           <Route path="/blogs/:blogId" element={<BlogDetail />} />
             <Route path="/journal/:journalId" element={<Journal />} />
 
         </Routes>

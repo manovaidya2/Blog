@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "../style/AdminJournalPage.css"; // Make sure this file exists
 
 const AdminJournalPage = () => {
   const [name, setName] = useState("");
   const [summary, setSummary] = useState("");
+  const [image, setImage] = useState(null);
   const [journals, setJournals] = useState([]);
+  const [editingJournal, setEditingJournal] = useState(null);
 
   const fetchJournals = async () => {
     try {
@@ -15,62 +18,123 @@ const AdminJournalPage = () => {
     }
   };
 
+
+const handleEdit = (journal) => {
+  setEditingJournal(journal);
+  setName(journal.name);
+  setSummary(journal.summaryAboutTitle);
+  setImage(null); // only update if new image is selected
+};
+
+const handleDelete = async (id) => {
+  try {
+    await axios.delete(`http://localhost:5000/api/journals/deleteJournal/${id}`);
+    fetchJournals();
+  } catch (err) {
+    console.error("Failed to delete journal:", err);
+  }
+};
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post("http://localhost:5000/api/journals/addJournal", {
-        name,
-        summaryAboutTitle: summary,
+  e.preventDefault();
+  try {
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("summaryAboutTitle", summary);
+    if (image) formData.append("img", image);
+
+    if (editingJournal) {
+      await axios.put(`http://localhost:5000/api/journals/updateJournal/${editingJournal._id}`, formData, {
+        headers: { "Content-Type": "multipart/form-data" }
       });
-      setName("");
-      setSummary("");
-      fetchJournals();
-    } catch (error) {
-      console.error("Failed to add journal:", error);
+    } else {
+      await axios.post("http://localhost:5000/api/journals/addJournal", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
     }
-  };
+
+    setName("");
+    setSummary("");
+    setImage(null);
+    setEditingJournal(null);
+    fetchJournals();
+  } catch (error) {
+    console.error("Failed to submit journal:", error);
+  }
+};
+
 
   useEffect(() => {
     fetchJournals();
   }, []);
 
   return (
-    <div className="p-6 max-w-3xl mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Add New Journal</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-6">
+    <div className="admin-container">
+      <h2 className="admin-heading">Add New Journal</h2>
+      <form onSubmit={handleSubmit} className="admin-form" encType="multipart/form-data">
         <input
           type="text"
           value={name}
           placeholder="Enter journal name"
           onChange={(e) => setName(e.target.value)}
-          className="border p-2 rounded"
+          className="admin-input"
           required
         />
         <textarea
           value={summary}
           placeholder="Enter summary or about title"
           onChange={(e) => setSummary(e.target.value)}
-          className="border p-2 rounded"
+          className="admin-textarea"
           rows={4}
           required
         />
-        <button
-          type="submit"
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded w-fit"
-        >
-          Add Journal
-        </button>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setImage(e.target.files[0])}
+          className="admin-input"
+          required
+        />
+       <button type="submit" className="admin-button">
+  {editingJournal ? "Update Journal" : "Add Journal"}
+</button>
+
       </form>
 
-      <h3 className="text-xl font-semibold mb-2">Existing Journals</h3>
-      <ul className="space-y-4">
-        {journals.map((j) => (
-          <li key={j._id} className="border p-3 rounded shadow-sm">
-            <h4 className="font-bold text-lg">{j.name}</h4>
-            <p className="text-sm text-gray-600">{j.summaryAboutTitle}</p>
-          </li>
-        ))}
-      </ul>
+      <h3 className="journal-table-heading">Existing Journals</h3>
+<table className="journal-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Summary</th>
+      <th>Image</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {journals.map((j, index) => (
+      <tr key={j._id}>
+        <td>{index + 1}</td>
+        <td>{j.name}</td>
+        <td>{j.summaryAboutTitle}</td>
+        <td>
+          <img
+            src={`http://localhost:5000/uploads/${j.img}`}
+            alt={j.name}
+            className="journal-table-image"
+          />
+        </td>
+        <td>
+          <button className="journal-btn edit-btn" onClick={() => handleEdit(j)}>Edit</button>
+          <button className="journal-btn delete-btn" onClick={() => handleDelete(j._id)}>Delete</button>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+
     </div>
   );
 };

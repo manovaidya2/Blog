@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const blogController = require('../Controllers/blogController');
+const upload = require("../Middleware/upload");
 
 // Create
-router.post('/add', blogController.addBlog);
+router.post("/add", upload.single("img"), blogController.addBlog);
 
 // Read
 router.get('/getAllBlogs', blogController.getAllBlogs);

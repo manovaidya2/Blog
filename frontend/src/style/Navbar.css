@@ -122,7 +122,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #01294c;
+  background-color: #ffffff;
   min-width: 160px;
   z-index: 1000;
   border-radius: 4px;
@@ -130,7 +130,7 @@
 }
 
 .dropdown-content a {
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 10px 16px;
   text-decoration: none;
   display: block;
@@ -138,7 +138,7 @@
 }
 
 .dropdown-content a:hover {
-  background-color: #014b88;
+  background-color: #e8e8e8;
 }
 
 .dropdown:hover .dropdown-content {
@@ -455,4 +455,44 @@
 
 .dropdown-logout button:hover {
   text-decoration: underline;
+}
+
+
+
+/* Unique class for the dropdown container */
+.journal-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+
+/* Dropdown content */
+.journal-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 300px; /* increased width */
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+  z-index: 1000;
+  border-radius: 6px;
+  padding: 10px 0;
+}
+
+/* Show dropdown on hover */
+.journal-dropdown:hover .journal-dropdown-content {
+  display: block;
+}
+
+/* Dropdown links */
+.journal-dropdown-content a {
+  color: #333;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  transition: background 0.2s;
+}
+
+.journal-dropdown-content a:hover {
+  background-color: #f2f2f2;
 }

@@ -1,10 +1,10 @@
 const Blog = require("../Models/Blog");
-
+// controllers/blogController.js
 exports.addBlog = async (req, res) => {
   try {
-    const { title, content, journalId, authors, imgUrl } = req.body;
+    const { title, content, journalId, authors, richContent } = req.body;
+    const imgFile = req.file;
 
-    // Validation check
     if (!title || !content || !journalId) {
       return res.status(400).json({ message: "Title, content, and journalId are required." });
     }
@@ -12,9 +12,12 @@ exports.addBlog = async (req, res) => {
     const blog = new Blog({
       title,
       content,
+      richContent,
       journalId,
       authors: authors || Math.floor(Math.random() * 5) + 1,
-      imgUrl: imgUrl || `/images/blog${Math.floor(Math.random() * 3) + 1}.jpg`
+      imgUrl: imgFile
+        ? `/uploads/${imgFile.filename}`
+        : `/images/blog${Math.floor(Math.random() * 3) + 1}.jpg`,
     });
 
     await blog.save();
@@ -23,6 +26,7 @@ exports.addBlog = async (req, res) => {
     res.status(500).json({ message: "Error adding blog", error });
   }
 };
+
 
 exports.getAllBlogs = async (req, res) => {
   try {

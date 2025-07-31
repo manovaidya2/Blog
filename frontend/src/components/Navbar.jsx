@@ -143,15 +143,15 @@ useEffect(() => {
           <button className="submit-btn1" onClick={openModal}>Submit Manuscript</button>
           <a className="mobile-link" href="/">Home</a>
 
-          <div className="dropdown">
-            <span className="dropbtn">Journals ▾</span>
-           <div className="dropdown-content">
-  {journals.map(j => (
-    <Link key={j._id} to={`/journal/${j._id}`}>{j.name}</Link>
-  ))}
+   <div className="journal-dropdown">
+  <span className="journal-dropbtn">Journals ▾</span>
+  <div className="journal-dropdown-content">
+    {journals.map(j => (
+      <Link key={j._id} to={`/journal/${j._id}`}>{j.name}</Link>
+    ))}
+  </div>
 </div>
 
-          </div>
 
           <a href="/latest-blog">Latest Articles</a>
 

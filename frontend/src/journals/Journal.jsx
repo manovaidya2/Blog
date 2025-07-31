@@ -77,30 +77,39 @@
 // };
 
 // export default Journal;
+
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../style/Journal.css";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
 const BlogHeader = ({ journal }) => (
-  
   <div className="blog-header">
-    <img src="/image/journals.jpg" alt="Banner" className="banner-img" />
+    <img
+      src={`http://localhost:5000/uploads/${journal.img}`}
+      alt={journal.name}
+      className="banner-img"
+    />
     <div className="banner-overlay">
       <h1>{journal.name}</h1>
       <p>{journal.summaryAboutTitle || "No summary available"}</p>
-
-
     </div>
   </div>
 );
 
 const BlogCard = ({ blog }) => (
   <div className="blog-card">
-    <img src={blog.imgUrl} alt="blog" className="blog-img" />
+  <img src={`http://localhost:5000${blog.imgUrl}`} alt="blog" className="blog-img" />
+
     <div className="blog-content">
       <p className="meta">Latest Blog • {Math.floor(Math.random() * 5 + 3)} min read</p>
-      <h3>{blog.title}</h3>
+   {blog._id && (
+  <h3>
+    <Link to={`/blogs/${blog._id}`}>{blog.title}</Link>
+  </h3>
+)}
+
+
       <p>{blog.content.slice(0, 200)}...</p>
       <div className="tags">
         <button className="tag">Research Article</button>
@@ -115,7 +124,12 @@ const TopResearched = ({ blogs }) => (
     <h3>TOP RESEARCHED</h3>
     {blogs.slice(0, 5).map((blog, i) => (
       <div key={i} className="top-item">
-        <p className="top-title">{blog.title}</p>
+       {blog._id && (
+  <Link to={`/blogs/${blog._id}`}>
+    <p className="top-title">{blog.title}</p>
+  </Link>
+)}
+
         <p className="top-desc">{blog.content.slice(0, 100)}...</p>
         <p className="top-meta">
           Posted {new Date(blog.createdAt).toLocaleDateString()} | Written by {blog.authors} Authors

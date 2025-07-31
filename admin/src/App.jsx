@@ -4,6 +4,9 @@ import AdminLayout from './components/AdminLayout';
 import Dashboard from './pages/Dashboard';
 import AdminJournalPage from './pages/AdminJournalPage';
 import AdminBlogPage from './pages/AdminBlogPage'
+import LatestBlog from './pages/LatestBlog';
+
+
 
 function App() {
   return (
@@ -13,6 +16,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/admin/journals" element={<AdminJournalPage />} />
           <Route path="/admin/blogs" element={<AdminBlogPage />} />
+            <Route path="/latest/blogs" element={<LatestBlog/>} />
 
         </Routes>
       </AdminLayout>
