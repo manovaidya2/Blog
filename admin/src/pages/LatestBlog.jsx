@@ -3,6 +3,7 @@ import axios from "axios";
 import "../style/LatestBlog.css";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import LatestBlogTable from "./LatestBlogTable";
 
 const LatestBlog = () => {
   const [formData, setFormData] = useState({
@@ -90,6 +91,7 @@ const LatestBlog = () => {
         <input type="text" name="tags" value={formData.tags} placeholder="Tags (comma separated)" onChange={handleChange} required />
         <button type="submit">Post Blog</button>
       </form>
+      <LatestBlogTable/>
     </div>
   );
 };

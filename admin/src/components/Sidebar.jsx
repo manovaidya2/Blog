@@ -44,7 +44,7 @@ const Sidebar = ({ isCollapsed, toggleCollapse, isOpen }) => {
           <li>
             <NavLink to="/admin/blogs" className={({ isActive }) => isActive ? "active-link" : ""}>
               <FaPenNib className="icon" />
-              {!isCollapsed && <span>Admin Blog</span>}
+              {!isCollapsed && <span>Journal Blog</span>}
             </NavLink>
           </li>
           <li>

@@ -103,3 +103,12 @@
     padding: 8px 14px;
   }
 }
+
+
+.blog-title-link {
+  text-decoration: none;
+  color: #007bff;
+}
+.blog-title-link:hover {
+  text-decoration: underline;
+}

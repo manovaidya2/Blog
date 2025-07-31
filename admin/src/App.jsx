@@ -17,7 +17,7 @@ function App() {
           <Route path="/admin/journals" element={<AdminJournalPage />} />
           <Route path="/admin/blogs" element={<AdminBlogPage />} />
             <Route path="/latest/blogs" element={<LatestBlog/>} />
-
+  
         </Routes>
       </AdminLayout>
     </Router>

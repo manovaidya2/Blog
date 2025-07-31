@@ -41,3 +41,55 @@ export const uploadImage = async (req, res) => {
     res.status(500).json({ error: "Failed to upload image" });
   }
 };
+
+
+export const getBlogById = async (req, res) => {
+  try {
+    const blog = await LatestBlog.findById(req.params.id);
+    if (!blog) return res.status(404).json({ error: "Blog not found" });
+    res.status(200).json(blog);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+
+export const toggleActiveStatus = async (req, res) => {
+  try {
+    const blog = await LatestBlog.findById(req.params.id);
+    if (!blog) return res.status(404).json({ error: "Blog not found" });
+
+    blog.isActive = !blog.isActive;
+    await blog.save();
+    res.status(200).json(blog);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+export const deleteBlog = async (req, res) => {
+  try {
+    await LatestBlog.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: "Blog deleted" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+export const updateBlog = async (req, res) => {
+  try {
+    const updated = await LatestBlog.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.status(200).json(updated);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
+
+export const getActiveBlogs = async (req, res) => {
+  try {
+    const activeBlogs = await LatestBlog.find({ isActive: true }).sort({ createdAt: -1 });
+    res.status(200).json(activeBlogs);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};

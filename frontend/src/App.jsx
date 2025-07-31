@@ -18,6 +18,7 @@ import LatestBlog from './pages/LatestBlog';
 import Journal from './journals/Journal';
 import JournalBlogPage from './pages/JournalBlogPage';
 import BlogDetail from "./journals/BlogDetail";
+import LatestBlogDetails from "./pages/LatestBlogDetails"
 
 import './App.css';
 
@@ -41,7 +42,7 @@ function App() {
            {/* <Route path="/journal" element={<Journal/>}  /> */}
            <Route path="/blogs/:blogId" element={<BlogDetail />} />
             <Route path="/journal/:journalId" element={<Journal />} />
-
+<Route path="/latest-blog/:blogId" element={<LatestBlogDetails />} />
         </Routes>
       </Layout>
     </Router>

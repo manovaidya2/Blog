@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import '../style/BlogPage.css';
-import blogImg1 from '../image/blog.jpg';
-import blogImg2 from '../image/blog2.jpg';
-import blogImg3 from '../image/blog3.jpg';
 
 const BlogCard = ({ img, title, description, authors }) => (
   <div className="blog-card">
@@ -19,44 +17,50 @@ const BlogCard = ({ img, title, description, authors }) => (
   </div>
 );
 
-const TopResearched = () => (
+const TopResearched = ({ topBlogs }) => (
   <div className="top-researched">
     <h3>TOP RESEARCHED</h3>
-    {Array(5).fill().map((_, i) => (
-      <div key={i} className="top-item">
-        <p className="top-title">Top Breakthroughs in Medical Science: A Year in Review</p>
-        <p className="top-desc">CRISPR technology is no longer science fiction. This article outlines the latest breakthroughs</p>
-        <p className="top-meta">Posted 23 March, 2025 | Written by 4 Authors</p>
+    {topBlogs.map((blog) => (
+      <div key={blog._id} className="top-item">
+        <p className="top-title">{blog.title}</p>
+        <p className="top-desc">{blog.description}</p>
+        <p className="top-meta">
+          Posted {new Date(blog.createdAt).toLocaleDateString()} | Written by {blog.authors} Authors
+        </p>
       </div>
     ))}
   </div>
 );
 
 const BlogPage = () => {
+  const [activeBlogs, setActiveBlogs] = useState([]);
+  const [topBlogs, setTopBlogs] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/latestblogs/active")
+      .then((res) => setActiveBlogs(res.data))
+      .catch((err) => console.error(err));
+
+    axios.get("http://localhost:5000/api/latestblogs/top")
+      .then((res) => setTopBlogs(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <div className="blog-container">
       <div className="blog-left">
-        <BlogCard
-          img={blogImg1}
-          title="CRISPR and Beyond: The Next Frontier in Gene Editing for Rare Diseases"
-          description="CRISPR technology is no longer science fiction. This article outlines the latest breakthroughs in gene editing and how they're offering hope for patients with previously untreatable genetic disorders — from clinical trials to ethical considerations."
-          authors={5}
-        />
-        <BlogCard
-          img={blogImg2}
-          title="CRISPR and Beyond: The Next Frontier in Gene Editing for Rare Diseases"
-          description="CRISPR technology is no longer science fiction. This article outlines the latest breakthroughs in gene editing and how they're offering hope for patients with previously untreatable genetic disorders — from clinical trials to ethical considerations."
-          authors={4}
-        />
-        <BlogCard
-          img={blogImg3}
-          title="What We Learned from COVID-19: Strengthening Global Public Health Research"
-          description="The pandemic highlighted both the strengths and gaps in global health systems. This post analyzes key research-driven lessons from COVID-19 and explores how data sharing, vaccine development, and cross-border collaboration can shape future pandemic preparedness."
-          authors={5}
-        />
+        {activeBlogs.map(blog => (
+          <BlogCard
+            key={blog._id}
+            img={blog.imageUrl}
+            title={blog.title}
+            description={blog.description}
+            authors={blog.authors}
+          />
+        ))}
       </div>
       <div className="blog-right">
-        <TopResearched />
+        <TopResearched topBlogs={topBlogs} />
       </div>
     </div>
   );

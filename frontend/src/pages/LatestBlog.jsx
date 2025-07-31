@@ -92,6 +92,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../style/Latest.css";
 import "../style/BlogPage.css";
+import { Link } from "react-router-dom";
 
 // BlogCard Component
 const BlogCard = ({ blog }) => (
@@ -99,12 +100,15 @@ const BlogCard = ({ blog }) => (
     <img src={blog.imageUrl} alt="blog" className="blog-img" />
     <div className="blog-content">
       <p className="meta">Latest Blog • 5 min read</p>
-      <h3>{blog.title}</h3>
+     <h3>
+  <Link to={`/latest-blog/${blog._id}`} className="blog-title-link">
+    {blog.title}
+  </Link>
+</h3>
       <p>{blog.description}</p>
       <div className="tags">
-        {blog.tags.map((tag, i) => (
-          <button className="tag" key={i}>{tag}</button>
-        ))}
+        <button className="tag">Research Article</button>
+  
         <button className="tag">Written by {blog.authors} Authors</button>
       </div>
     </div>

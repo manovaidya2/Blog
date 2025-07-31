@@ -7,10 +7,9 @@ const latestBlogSchema = new mongoose.Schema({
   authors: { type: Number, required: true },
   imageUrl: { type: String, required: true },
   tags: { type: [String], default: [] },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  isActive: { type: Boolean, default: false }, // Add this
+  createdAt: { type: Date, default: Date.now },
 });
+
 
 export default mongoose.model("LatestBlog", latestBlogSchema);
