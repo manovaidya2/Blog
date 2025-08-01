@@ -122,12 +122,18 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #ffffff;
+  /* background-color: rgba(214, 23, 23, 0.85); Semi-transparent red for overlay */
+  background-image: url('../image/6.png'); /* ✅ Replace with your image path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   min-width: 160px;
   z-index: 1000;
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  padding: 10px 0; /* Optional padding inside dropdown */
 }
+
 
 .dropdown-content a {
   color: rgb(0, 0, 0);
@@ -380,13 +386,19 @@
 .dropdown-content-wide {
   display: none;
   position: absolute;
-  background-color: white;
-  min-width: 260px; /* Increased width */
+  min-width: 260px;
+  /* background-color: rgba(255, 255, 255, 0.95); Optional slight white overlay */
+  background-image: url('../image/6.png'); /* ✅ Use your actual image path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
   z-index: 1;
-  white-space: nowrap; /* Prevent line breaks */
+  white-space: nowrap;
   padding: 10px 0;
+  border-radius: 8px;
 }
+
 
 .dropdown-wide:hover .dropdown-content-wide {
   display: block;
@@ -471,8 +483,12 @@
 .journal-dropdown-content {
   display: none;
   position: absolute;
-  background-color: white;
-  min-width: 300px; /* increased width */
+  /* background-color: rgba(255, 255, 255, 0.95); Optional semi-transparent white overlay */
+  background-image: url('../image/8.png'); /* ✅ Update with your actual image path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 300px;
   box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
   z-index: 1000;
   border-radius: 6px;
@@ -496,3 +512,68 @@
 .journal-dropdown-content a:hover {
   background-color: #f2f2f2;
 }
+
+
+
+
+.logo-image img {
+  height: 60px;         /* Adjust size as needed */
+  width: 150px;          /* Maintain aspect ratio */
+  object-fit: cover;
+  display: block;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+.desktop-only {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none; /* Hide logo on mobile if needed */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.mobile-logo-text {
+  display: none; /* Hidden by default */
+  text-align: center;
+  padding: 0.5rem 1rem;
+  background-color: transparent; /* or #fff if needed */
+}
+
+.mobile-logo-text img {
+  max-width: 200px; /* Adjust size as needed */
+  height: 70px;
+  margin-bottom: -20px;
+  margin-top: -10px;
+}
+
+/* Show only on mobile */
+@media (max-width: 768px) {
+  .mobile-logo-text {
+    display: block;
+  }
+
+  .navbar-left.desktop-only {
+    display: none; /* Hide desktop logo on mobile */
+  }
+}
+
+
+
+
+

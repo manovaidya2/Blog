@@ -38,7 +38,7 @@ const LatestBlogTable = () => {
             <th>Title</th>
             <th>Authors</th>
             <th>Tags</th>
-            <th>Active</th>
+            <th>Homepage</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -59,7 +59,7 @@ const LatestBlogTable = () => {
               <td className="action-buttons">
                 <button className="edit-btn" onClick={() => handleEdit(blog._id)}>Edit</button>
                 <button className="toggle-btn" onClick={() => toggleActive(blog._id)}>
-                  {blog.isActive ? "Unmark" : "Mark Active"}
+                  {blog.isActive ? "Unactive " : "Active Homapage"}
                 </button>
                 <button className="delete-btn" onClick={() => handleDelete(blog._id)}>Delete</button>
               </td>

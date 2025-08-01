@@ -6,13 +6,13 @@ const SubmitModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     fullName: "",
     fatherName: "",
-    institution: "",
+    institutionName: "",
     authorName: "",
     coAuthor1: "",
     coAuthor2: "",
     coAuthor3: "",
     researchTopic: "",
-    studyField: "",
+   fieldOfStudy: "",
     pdf: null,
   });
 
@@ -58,13 +58,13 @@ const SubmitModal = ({ isOpen, onClose }) => {
           <div className="form-grid">
             <input name="fullName" placeholder="Full Name" onChange={handleChange} />
             <input name="fatherName" placeholder="Father's Name" onChange={handleChange} />
-            <input name="institution" placeholder="Institution Name" onChange={handleChange} />
+            <input name="institutionName" placeholder="Institution Name" onChange={handleChange} />
             <input name="authorName" placeholder="Name of Author" onChange={handleChange} />
             <input name="coAuthor1" placeholder="Name of Co-author 01" onChange={handleChange} />
             <input name="coAuthor2" placeholder="Name of Co-author 02" onChange={handleChange} />
             <input name="coAuthor3" placeholder="Name of Co-author 03" onChange={handleChange} />
             <input name="researchTopic" placeholder="Topic of Research" onChange={handleChange} />
-            <input name="studyField" placeholder="Field of Study" onChange={handleChange} />
+           <input name="fieldOfStudy" placeholder="Field of Study" onChange={handleChange} /> 
           </div>
 
           <div className="upload-box">

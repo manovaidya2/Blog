@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import AdminJournalPage from './pages/AdminJournalPage';
 import AdminBlogPage from './pages/AdminBlogPage'
 import LatestBlog from './pages/LatestBlog';
+import AllSubmissions from "./pages/AllSubmissions";
 
 
 
@@ -17,7 +18,7 @@ function App() {
           <Route path="/admin/journals" element={<AdminJournalPage />} />
           <Route path="/admin/blogs" element={<AdminBlogPage />} />
             <Route path="/latest/blogs" element={<LatestBlog/>} />
-  
+  <Route path="/submissions" element={<AllSubmissions />} />
         </Routes>
       </AdminLayout>
     </Router>

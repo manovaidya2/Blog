@@ -37,42 +37,47 @@ const AdminBlogTable = () => {
   };
 
   return (
-    <div className="table-container">
-      <h2>All Blogs</h2>
-      <table className="blog-table">
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Journal</th>
-            <th>Authors</th>
-            <th>Date</th>
-            <th>Actions</th>
+   <div className="table-container">
+  <h2>All Blogs</h2>
+
+  {/* ✅ Wrap the table inside a scrollable wrapper */}
+  <div className="table-wrapper">
+    <table className="blog-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Journal</th>
+          <th>Authors</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {blogs.map((blog) => (
+          <tr key={blog._id}>
+            <td>
+              <img
+                src={`http://localhost:5000${blog.imgUrl}`}
+                alt={blog.title}
+                className="blog-thumb"
+              />
+            </td>
+            <td>{blog.title}</td>
+            <td>{blog.journalId?.name || "N/A"}</td>
+            <td>{blog.authors}</td>
+            <td>{new Date(blog.createdAt).toLocaleDateString()}</td>
+            <td>
+              <button onClick={() => handleEdit(blog._id)} className="edit-btn">Edit</button>
+              <button onClick={() => handleDelete(blog._id)} className="delete-btn">Delete</button>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          {blogs.map((blog) => (
-            <tr key={blog._id}>
-              <td>
-                <img
-                  src={`http://localhost:5000${blog.imgUrl}`}
-                  alt={blog.title}
-                  className="blog-thumb"
-                />
-              </td>
-              <td>{blog.title}</td>
-              <td>{blog.journalId?.name || "N/A"}</td>
-              <td>{blog.authors}</td>
-              <td>{new Date(blog.createdAt).toLocaleDateString()}</td>
-              <td>
-                <button onClick={() => handleEdit(blog._id)} className="edit-btn">Edit</button>
-                <button onClick={() => handleDelete(blog._id)} className="delete-btn">Delete</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
   );
 };
 

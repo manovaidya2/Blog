@@ -54,9 +54,9 @@ const Sidebar = ({ isCollapsed, toggleCollapse, isOpen }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/admin/reviewers" className={({ isActive }) => isActive ? "active-link" : ""}>
+            <NavLink to="/submissions" className={({ isActive }) => isActive ? "active-link" : ""}>
               <FaUserCheck className="icon" />
-              {!isCollapsed && <span>Reviewers</span>}
+              {!isCollapsed && <span>Menu Script</span>}
             </NavLink>
           </li>
           <li>

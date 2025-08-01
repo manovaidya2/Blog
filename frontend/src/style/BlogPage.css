@@ -120,7 +120,7 @@
 @media screen and (max-width: 768px) {
   .blog-container {
     flex-direction: column;
-    padding: 20px;
+    
     background-position: center top;
   }
 
@@ -187,6 +187,7 @@
 @media screen and (max-width: 480px) {
   .blog-content h3 {
     font-size: 15px;
+
   }
 
   .blog-content p {
@@ -208,5 +209,11 @@
 
   .top-meta {
     font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-card {
+    max-width: 130vw;
   }
 }

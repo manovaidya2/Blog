@@ -121,8 +121,9 @@ const TopResearched = ({ topBlogs }) => (
     <h3>TOP RESEARCHED</h3>
     {topBlogs.map((blog, i) => (
       <div key={i} className="top-item">
-        {/* <img src={blog.imageUrl} alt="Top Blog" className="top-img" /> */}
-        <p className="top-title">{blog.title}</p>
+        <Link to={`/latest-blog/${blog._id}`} className="top-title-link">
+          <p className="top-title">{blog.title}</p>
+        </Link>
         <p className="top-desc">{blog.description.slice(0, 100)}...</p>
         <p className="top-meta">
           Posted {new Date(blog.createdAt).toLocaleDateString()} | Written by {blog.authors} Authors
@@ -131,7 +132,6 @@ const TopResearched = ({ topBlogs }) => (
     ))}
   </div>
 );
-
 // Main Page
 const LatestBlog = () => {
   const [blogs, setBlogs] = useState([]);

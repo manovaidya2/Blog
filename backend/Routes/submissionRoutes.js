@@ -2,13 +2,11 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const path = require("path");
-const { submitPaper } = require("../controllers/submissionController");
+const { submitPaper, getAllSubmissions } = require("../Controllers/submissionController");
 
 // Set up multer for PDF upload
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/");
-  },
+  destination: (req, file, cb) => cb(null, "uploads/"),
   filename: (req, file, cb) => {
     const uniqueName = Date.now() + "-" + file.originalname;
     cb(null, uniqueName);
@@ -27,5 +25,6 @@ const upload = multer({
 });
 
 router.post("/submit", upload.single("pdf"), submitPaper);
+router.get("/all", getAllSubmissions); // ✅ Added GET route
 
 module.exports = router;

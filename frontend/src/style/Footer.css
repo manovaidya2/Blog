@@ -1,95 +1,100 @@
+/* General footer styling (background already okay) */
 .footer {
-  background-color: #00274d;
-  color: #fff;
-  padding: 50px 20px 20px;
+  background-color: #002b4e; /* Dark navy background */
+  color: #ffffff;
+  padding: 2rem 1rem;
   font-family: 'Segoe UI', sans-serif;
 }
 
+/* Footer layout */
 .footer-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
   max-width: 1200px;
   margin: auto;
-  justify-content: space-between;
 }
 
+/* Footer columns */
 .footer-column {
   flex: 1 1 200px;
-  margin: 20px;
 }
 
-.about h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.emoji {
-  margin-right: 5px;
-}
-
-.subtext {
-  font-size: 12px;
-  line-height: 1.4;
-  color: #ccc;
-}
-
-.desc {
-  margin: 20px 0;
-  color: #ddd;
-  line-height: 1.6;
-  font-size: 14px;
-}
-
-.follow {
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.social-icons {
-  display: flex;
-  gap: 15px;
-}
-
-.social-icons a {
-  background-color: #fff;
-  color: #00274d;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-.social-icons a:hover {
-  background-color: #1e90ff;
-  color: #fff;
-}
-
-.footer-column h3 {
-  font-size: 16px;
-  margin-bottom: 15px;
+.footer-column h3,
+.footer-column h2 {
+  color: #ffffff;
+  margin-bottom: 1rem;
 }
 
 .footer-column ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.footer-column ul li {
-  margin-bottom: 10px;
-  font-size: 14px;
-  color: #ccc;
+.footer-column li {
+  margin-bottom: 0.5rem;
 }
 
+/* Fix for link colors */
+.footer-column a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #ffcc00; /* Yellowish hover effect */
+  text-decoration: underline;
+}
+
+/* Social icons */
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1.4rem;
+  color: #ffffff;
+  background-color: #ffffff20;
+  border-radius: 50%;
+  padding: 0.5rem;
+  transition: background-color 0.3s ease;
+   margin-top: 20px;  
+}
+
+.social-icons a:hover {
+  background-color: #ffcc00;
+  color: #002b4e;
+ 
+}
+
+/* Bottom line */
 .footer-bottom {
   text-align: center;
-  padding-top: 30px;
-  color: #ccc;
-  font-size: 14px;
+  margin-top: 2rem;
+  color: #ffffffb3;
+  font-size: 0.9rem;
 }
 
+/* Logo inline fix */
+.inline-logo {
+  width: 200px;
+  height: 150px;
+  vertical-align: middle;
+  margin-right: 10px;
+  object-fit: contain;
+  margin-top: -50px;
+  margin-bottom: -50px;
+}
 
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-column {
+   
+  }
+}

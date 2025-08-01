@@ -20,7 +20,7 @@ const submitPaper = async (req, res) => {
       fullName,
       fatherName,
       institutionName,
-      authorName,
+      authorName, 
       coAuthor1,
       coAuthor2,
       coAuthor3,
@@ -37,4 +37,14 @@ const submitPaper = async (req, res) => {
   }
 };
 
-module.exports = { submitPaper };
+const getAllSubmissions = async (req, res) => {
+  try {
+    const submissions = await Submission.find().sort({ createdAt: -1 });
+    res.status(200).json(submissions);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Failed to fetch submissions" });
+  }
+};
+
+module.exports = { submitPaper, getAllSubmissions };

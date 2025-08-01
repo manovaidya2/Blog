@@ -1,0 +1,123 @@
+/* Root container */
+.submission-container {
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* Heading */
+.submission-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #172f3d;
+}
+
+/* Table scroll wrapper */
+.table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* Table styling */
+.submission-table {
+ 
+  border-collapse: collapse;
+
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* Header cells */
+.submission-table th {
+  background-color: #172f3d;
+  color: #fff;
+  padding: 14px 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Data cells */
+.submission-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Row hover effect */
+.submission-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* PDF Link */
+.submission-table a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.submission-table a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive media queries */
+@media screen and (max-width: 1024px) {
+  .submission-container {
+    padding: 1.5rem;
+  }
+
+  .submission-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .submission-table {
+    font-size: 0.9rem;
+    min-width: 900px;
+  }
+
+  .submission-table th,
+  .submission-table td {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .submission-container {
+    padding: 1rem;
+  }
+
+  .submission-container h2 {
+    font-size: 1.4rem;
+  }
+
+  .submission-table {
+    font-size: 0.85rem;
+    min-width: 800px;
+  }
+
+  .submission-table th,
+  .submission-table td {
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .submission-container h2 {
+    font-size: 1.2rem;
+  }
+
+  .submission-table {
+    font-size: 0.8rem;
+    min-width: 700px;
+  }
+
+  .submission-table th,
+  .submission-table td {
+    padding: 6px;
+  }
+}

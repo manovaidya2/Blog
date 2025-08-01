@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../style/BlogPage.css';
 
-const BlogCard = ({ img, title, description, authors }) => (
+
+const BlogCard = ({ img, title, description, authors, id }) => (
   <div className="blog-card">
     <img src={img} alt="blog" className="blog-img" />
     <div className="blog-content">
       <p className="meta">Latest Blog • 5 min read</p>
-      <h3>{title}</h3>
+      <h3>
+        <Link to={`/latest-blog/${id}`} className="blog-title-link">
+          {title}
+        </Link>
+      </h3>
       <p>{description}</p>
       <div className="tags">
         <button className="tag">Research Article</button>
@@ -22,7 +28,10 @@ const TopResearched = ({ topBlogs }) => (
     <h3>TOP RESEARCHED</h3>
     {topBlogs.map((blog) => (
       <div key={blog._id} className="top-item">
-        <p className="top-title">{blog.title}</p>
+        {/* ✅ Wrap title with Link */}
+        <Link to={`/latest-blog/${blog._id}`} className="top-title-link">
+          <p className="top-title">{blog.title}</p>
+        </Link>
         <p className="top-desc">{blog.description}</p>
         <p className="top-meta">
           Posted {new Date(blog.createdAt).toLocaleDateString()} | Written by {blog.authors} Authors
@@ -31,6 +40,7 @@ const TopResearched = ({ topBlogs }) => (
     ))}
   </div>
 );
+
 
 const BlogPage = () => {
   const [activeBlogs, setActiveBlogs] = useState([]);
@@ -50,13 +60,15 @@ const BlogPage = () => {
     <div className="blog-container">
       <div className="blog-left">
         {activeBlogs.map(blog => (
-          <BlogCard
-            key={blog._id}
-            img={blog.imageUrl}
-            title={blog.title}
-            description={blog.description}
-            authors={blog.authors}
-          />
+   <BlogCard
+  key={blog._id}
+  id={blog._id} // ✅ Add this line!
+  img={blog.imageUrl}
+  title={blog.title}
+  description={blog.description}
+  authors={blog.authors}
+/>
+
         ))}
       </div>
       <div className="blog-right">
