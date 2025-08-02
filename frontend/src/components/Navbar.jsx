@@ -65,7 +65,9 @@ const Navbar = () => {
         <div className="hamburger" onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
         </div>
-        <div className="mobile-logo-text"> <img src={logo} alt="AIRF Logo" /></div>
+        <div className="mobile-logo-text"><Link to="/">
+  <img src={logo} alt="AIRF Logo" />
+</Link></div>
         <div className="mobile-actions">
           <button className="search-btn"><FaSearch className="search-icon" /></button>
           {user ? (
@@ -80,7 +82,9 @@ const Navbar = () => {
       <div className={`mobile-sidebar-overlay ${isMobileMenuOpen ? "open" : ""}`}>
         <div className="mobile-sidebar-content">
           <div className="mobile-sidebar-header">
-            <strong>AIRF</strong>
+           <Link to="/">
+  <img src={logo} alt="AIRF Logo" style={{ height: '70px', width: '70px', marginBottom:'-20px' , alignItems:'center'}} />
+</Link>
             <button className="close-btn" onClick={() => setMobileMenuOpen(false)}>
               <FaTimes />
             </button>
@@ -111,6 +115,9 @@ const Navbar = () => {
                 <a href="/about-this">About This Journal</a>
                 <a href="/editorial-board">Editorial Board</a>
                 <a href="/peer-reviewer">Peer Review Process</a>
+                   <a href="/publication-ethics">Publication Ethics</a>
+            <a href="/abstracting">Abstracting & Indexing</a>
+            <a href="/article-processing">Article Processing Charges</a>
               </div>
             )}
           </div>

@@ -3,7 +3,7 @@
 }
 
 .hero1 {
-  height: 60vh;
+  height: 70vh;
   background-image: 
     linear-gradient(
       to right,
@@ -58,7 +58,7 @@
 
 @media screen and (max-width: 768px) {
   .hero {
-    height: 50vh;
+    height: 60vh;
     padding: 20px;
     justify-content: flex-start;
     align-items: flex-start;
@@ -112,3 +112,5 @@
 .blog-title-link:hover {
   text-decoration: underline;
 }
+
+

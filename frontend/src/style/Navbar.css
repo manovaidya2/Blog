@@ -280,99 +280,131 @@
 
 
 /* Sidebar Overlay Background */
+/* ===== Mobile Sidebar Overlay ===== */
 .mobile-sidebar-overlay {
   position: fixed;
   top: 0;
   left: -100%;
-  width: 100%;
+  width: 80%;
+  max-width: 300px;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  transition: left 0.3s ease-in-out;
+  background: #001f3f;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
   z-index: 1000;
+  transition: left 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }
 
 .mobile-sidebar-overlay.open {
   left: 0;
 }
 
-/* Sidebar Content */
-.mobile-sidebar-content {
-  background: white;
-  width: 280px;
-  height: 100%;
-  padding: 20px;
-  overflow-y: auto;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Header with Close Button */
+/* ===== Sidebar Header ===== */
 .mobile-sidebar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
 }
 
-/* Close Button */
 .close-btn {
-  background: none;
+  background: transparent;
   border: none;
-  font-size: 20px;
+  font-size: 1.5rem;
+  color: #ffffff;
   cursor: pointer;
 }
 
-/* Buttons and Links */
+/* ===== Buttons and Links ===== */
 .mobile-submit-btn,
-.mobile-login-btn {
-  width: 100%;
-  background-color: #253b4b;
-  color: white;
-  padding: 12px;
-  margin: 10px 0;
+.mobile-login-btn,
+.mobile-user-logout button {
+  background: #1e3a8a;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
   border: none;
-  font-size: 16px;
-  border-radius: 4px;
+  margin: 12px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: background 0.2s ease;
 }
 
-.mobile-link,
+.mobile-submit-btn:hover,
+.mobile-login-btn:hover,
+.mobile-user-logout button:hover {
+  background: #0f1e4d;
+}
+
+/* ===== Dropdown Menus ===== */
+.mobile-dropdown {
+  margin: 12px 0;
+}
+
 .mobile-dropbtn {
   display: block;
-  font-size: 16px;
-  padding: 10px 0;
-  color: #333;
-  text-decoration: none;
+  font-size: 1.05rem;
   font-weight: 500;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 8px 0;
 }
 
-/* Dropdown Content */
 .mobile-dropdown-content {
   padding-left: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
 }
 
 .mobile-dropdown-content a {
   display: block;
-  font-size: 15px;
-  padding: 6px 0;
-  color: #282727;
+  color: #ffffff;
+  padding: 8px 0;
+  font-size: 0.95rem;
   text-decoration: none;
+  border-bottom: 1px dashed #eee;
+  transition: color 0.2s;
 }
 
 .mobile-dropdown-content a:hover {
-  color: #1c2a33;
+  color: #1e3a8a;
 }
 
-
-.mobile-dropdown-content {
-  padding-left: 10px;
-  margin-bottom: 10px;
-  animation: fadeIn 0.2s ease-in-out;
+/* ===== Sidebar Links ===== */
+.mobile-link {
+  display: block;
+  font-size: 1rem;
+  color: #ffffff;
+  padding: 10px 0;
+  /* border-bottom: 1px solid #c7c7c7; */
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+.mobile-link:hover {
+  color: #1e3a8a;
+}
+
+/* ===== Logged-in User Info ===== */
+.mobile-user-logout {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+}
+
+.mobile-user-name {
+  font-weight: 600;
+  
+  color: #ffffff;
+  margin-bottom: 8px;
+  display: block;
+padding: 5px;
 }
 
 

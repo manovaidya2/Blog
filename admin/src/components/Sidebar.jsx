@@ -17,9 +17,9 @@ const Sidebar = ({ isCollapsed, toggleCollapse, isOpen }) => {
   return (
     <>
       {/* Collapse/Expand Icon */}
-      <button className="sidebar-collapse" onClick={toggleCollapse}>
+      {/* <button className="sidebar-collapse" onClick={toggleCollapse}>
         {isCollapsed ? <FaAngleDoubleRight /> : <FaAngleDoubleLeft />}
-      </button>
+      </button> */}
 
       <div
         className={`sidebar ${isOpen ? "open" : ""} ${

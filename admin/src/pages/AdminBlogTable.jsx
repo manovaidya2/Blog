@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "../style/BlogTable.css"; // Custom CSS for table
+import { useNavigate } from "react-router-dom";
+import "../style/BlogTable.css";
 
 const AdminBlogTable = () => {
   const [blogs, setBlogs] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchBlogs();
@@ -20,7 +22,6 @@ const AdminBlogTable = () => {
 
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
-
     try {
       await axios.delete(`http://localhost:5000/api/blogs/deleteBlog/${id}`);
       alert("Blog deleted successfully!");
@@ -32,52 +33,60 @@ const AdminBlogTable = () => {
   };
 
   const handleEdit = (id) => {
-    // Redirect to edit page or open modal
-    window.location.href = `/admin/edit-blog/${id}`;
+    navigate(`/admin/edit-blog/${id}`);
   };
 
   return (
-   <div className="table-container">
-  <h2>All Blogs</h2>
-
-  {/* ✅ Wrap the table inside a scrollable wrapper */}
-  <div className="table-wrapper">
-    <table className="blog-table">
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Title</th>
-          <th>Journal</th>
-          <th>Authors</th>
-          <th>Date</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {blogs.map((blog) => (
-          <tr key={blog._id}>
-            <td>
-              <img
-                src={`http://localhost:5000${blog.imgUrl}`}
-                alt={blog.title}
-                className="blog-thumb"
-              />
-            </td>
-            <td>{blog.title}</td>
-            <td>{blog.journalId?.name || "N/A"}</td>
-            <td>{blog.authors}</td>
-            <td>{new Date(blog.createdAt).toLocaleDateString()}</td>
-            <td>
-              <button onClick={() => handleEdit(blog._id)} className="edit-btn">Edit</button>
-              <button onClick={() => handleDelete(blog._id)} className="delete-btn">Delete</button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</div>
-
+    <div className="table-container">
+      <h2>All Blogs</h2>
+      <div className="table-wrapper">
+        <table className="blog-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Journal</th>
+              <th>Authors</th>
+              <th>Date</th>
+              <th>Rich Content</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {blogs.map((blog) => (
+              <tr key={blog._id}>
+                <td>
+                  <img
+                    src={`http://localhost:5000${blog.imgUrl}`}
+                    alt={blog.title}
+                    className="blog-thumb"
+                  />
+                </td>
+                <td>{blog.title}</td>
+                <td>{blog.journalId?.name || "N/A"}</td>
+                <td>{blog.authors}</td>
+                <td>{new Date(blog.createdAt).toLocaleDateString()}</td>
+                <td>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: blog.richContent?.slice(0, 100) + "...",
+                    }}
+                  />
+                </td>
+                <td>
+                  <button onClick={() => handleEdit(blog._id)} className="edit-btn">
+                    Edit
+                  </button>
+                  <button onClick={() => handleDelete(blog._id)} className="delete-btn">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 };
 

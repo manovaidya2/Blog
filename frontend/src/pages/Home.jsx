@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import "../style/Home.css";
-import BlogPage from './BlogPage';
+import BlogPage from '../pages/BlogPage';
 
 const Home = () => {
   const blogRef = useRef(null); // Create ref

@@ -1,30 +1,32 @@
-/* Base Container */
+/* Container */
 .admin-blog-container {
-  
-  margin: 50px auto;
+  max-width: 900px;
+  margin: 2rem auto;
   padding: 2.5rem;
   background: linear-gradient(145deg, #ffffff, #f0f4ff);
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.6s ease-in-out;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 /* Heading */
 .admin-blog-container h2 {
   text-align: center;
   margin-bottom: 2rem;
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: #1e3a8a;
   font-weight: 700;
 }
 
-/* Form Styles */
+/* Form */
 .admin-blog-form {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
 
+/* Input + Textarea */
 .admin-blog-form input,
 .admin-blog-form textarea {
   padding: 0.9rem 1rem;
@@ -33,7 +35,8 @@
   border-radius: 10px;
   transition: border-color 0.3s, box-shadow 0.3s;
   background-color: #ffffff;
-  resize: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .admin-blog-form input:focus,
@@ -41,6 +44,14 @@
   border-color: #3b82f6;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
   outline: none;
+}
+
+/* CKEditor wrapper */
+.ckeditor-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1rem;
 }
 
 /* Button */
@@ -61,7 +72,7 @@
   box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
 }
 
-/* Message Styling */
+/* Message */
 .message {
   text-align: center;
   margin-bottom: 1.25rem;
@@ -108,18 +119,55 @@
   }
 }
 
-/* Responsive Layout */
-@media screen and (max-width: 768px) {
+/* Responsive Styles */
+@media (max-width: 1024px) {
   .admin-blog-container {
-    padding: 1.5rem;
-    margin: 30px 1rem;
+    padding: 2rem;
   }
 
   .admin-blog-form button {
     font-size: 1rem;
   }
+}
+
+@media (max-width: 768px) {
+  .admin-blog-container {
+    padding: 1.5rem;
+  
+  }
+
+  .admin-blog-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .ckeditor-wrapper label {
+    font-size: 1rem;
+  }
+
+  .admin-blog-form input,
+  .admin-blog-form textarea {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-blog-container {
+    padding: 1rem;
+    width: 260px;
+    align-items: left;
+  }
 
   .admin-blog-container h2 {
     font-size: 1.5rem;
+  }
+
+  .admin-blog-form input,
+  .admin-blog-form textarea {
+    font-size: 0.9rem;
+  }
+
+  .admin-blog-form button {
+    font-size: 1rem;
+    padding: 0.8rem;
   }
 }

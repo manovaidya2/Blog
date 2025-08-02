@@ -217,5 +217,24 @@
 }
 
 
+@media (max-width: 768px) {
+  .author-top-strip {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 12px;
+  }
 
+  .top-left,
+  .top-right {
+    flex: 1;
+  }
+
+  .top-left {
+    text-align: left;
+  }
+
+  .top-right {
+    text-align: right;
+  }
+}
 

@@ -1,14 +1,17 @@
 .admin-container {
-
   margin: 0 auto;
   padding: 24px;
   font-family: Arial, sans-serif;
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .admin-heading {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .admin-form {
@@ -24,6 +27,8 @@
   padding: 10px;
   border-radius: 4px;
   font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .admin-button {
@@ -34,26 +39,12 @@
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
+  width: fit-content;
 }
 
 .admin-button:hover {
   background-color: #1d4ed8;
 }
-
-.journal-list-heading {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.journal-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-
-
 
 .journal-table-heading {
   margin-top: 40px;
@@ -69,24 +60,29 @@
   background-color: #faf8f8;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border-radius: 8px;
-  overflow: hidden;
+  overflow-x: auto;
+  display: block; /* To make table horizontally scrollable on small screens */
+}
+
+.journal-table thead {
+  background-color: #aed9e0;
 }
 
 .journal-table th, .journal-table td {
   padding: 12px 16px;
   text-align: left;
-  border-bottom: 1px solid #71805c;
-  
+  border-bottom: 1px solid #0d1403;
+  border-right: 1px solid #0d1403; /* Right vertical border */
+  border-left: 1px solid #0d1403;  /* Left vertical border */
+  white-space: nowrap; /* Prevent text wrap */
 }
+
 
 .journal-table th {
-  background-color: #aed9e0;
   font-weight: 600;
+    
 }
 
-.journal-table tr:hover {
-  background-color: #fafafa;
-}
 
 .journal-table-image {
   width: 80px;
@@ -94,8 +90,6 @@
   border-radius: 4px;
   object-fit: cover;
 }
-
-
 
 .journal-btn {
   padding: 6px 12px;
@@ -115,4 +109,64 @@
 .delete-btn {
   background-color: #dc3545;
   color: white;
+}
+
+/* ------------------ */
+/* ✅ Responsive View */
+/* ------------------ */
+
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 16px;
+  }
+
+  .admin-heading {
+    font-size: 20px;
+  }
+
+  .journal-table {
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  .journal-table th,
+  .journal-table td {
+    padding: 10px 8px;
+  }
+
+  .journal-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .admin-form {
+    gap: 12px;
+  }
+
+  .admin-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .journal-table-image {
+    width: 60px;
+  }
+
+  .admin-heading,
+  .journal-table-heading {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .admin-button {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    margin-bottom: 6px;
+  }
 }

@@ -1,0 +1,108 @@
+.edit-blog-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  background-color: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.edit-blog-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #1f2937;
+}
+
+.edit-blog-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.edit-blog-container input,
+.edit-blog-container textarea {
+  width: 90%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+  background-color: #fff;
+}
+
+.edit-blog-container input:focus,
+.edit-blog-container textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.edit-blog-container label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #374151;
+}
+
+.ck.ck-editor {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.ck-editor__editable {
+  min-height: 200px;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.edit-blog-container button {
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-blog-container button:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(40, 167, 69, 0.25);
+}
+
+/* ✅ Responsive adjustments */
+@media (max-width: 768px) {
+  .edit-blog-container {
+    padding: 1.5rem;
+  }
+
+  .edit-blog-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .edit-blog-container input,
+  .edit-blog-container textarea {
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+
+  .edit-blog-container button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .edit-blog-container {
+    padding: 1rem;
+  }
+
+  .edit-blog-container h2 {
+    font-size: 1.4rem;
+  }
+}
