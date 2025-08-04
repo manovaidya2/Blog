@@ -11,6 +11,9 @@ router.get('/getAllBlogs', blogController.getAllBlogs);
 router.get('/getBlogsByJournal/:journalId', blogController.getBlogsByJournal);
 router.get('/getBlogById/:id', blogController.getBlogById);
 
+// ✅ Add this line:
+router.get("/search", blogController.searchBlogs);
+
 // Update
 router.put('/updateblog/:id', blogController.updateBlog);
 

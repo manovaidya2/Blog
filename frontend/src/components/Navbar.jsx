@@ -72,12 +72,30 @@ const [searchTerm, setSearchTerm] = useState("");
   <img src={logo} alt="AIRF Logo" />
 </Link></div>
         <div className="mobile-actions">
-          <button className="search-btn"><FaSearch className="search-icon" /></button>
-          {user ? (
+          <div className={`navbar-search-wrapper ${showSearch ? "expanded" : ""}`}>
+  <input
+    type="text"
+    className="navbar-search-input"
+    placeholder="Search blogs..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    onKeyDown={(e) => {
+      if (e.key === "Enter") {
+        window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
+      }
+    }}
+  />
+</div>
+
+
+     <button className="search-btn" onClick={() => setShowSearch(!showSearch)}>
+  <FaSearch className="search-icon" />
+</button>
+          {/* {user ? (
             <span className="mobile-user-name">Hi, {user.name}</span>
           ) : (
             <Link to="/auth" className="login-btn">Sign Up / Login</Link>
-          )}
+          )} */}
         </div>
       </div>
 
@@ -150,11 +168,11 @@ const [searchTerm, setSearchTerm] = useState("");
 
       {/* Desktop Navbar */}
     <div className="navbar-left desktop-only">
-  <div className="logo-image">
+  <Link to="/" className="logo-image">
     <img src={logo} alt="AIRF Logo" />
-
-  </div>
+  </Link>
 </div>
+
 
 
       <div className="navbar-middle desktop-only">
@@ -195,7 +213,7 @@ const [searchTerm, setSearchTerm] = useState("");
       </div>
 
       <div className="navbar-right desktop-only">
-        {showSearch && (
+       <div className={`navbar-search-wrapper ${showSearch ? "expanded" : ""}`}>
   <input
     type="text"
     className="navbar-search-input"
@@ -208,7 +226,7 @@ const [searchTerm, setSearchTerm] = useState("");
       }
     }}
   />
-)}
+</div>
 
      <button className="search-btn" onClick={() => setShowSearch(!showSearch)}>
   <FaSearch className="search-icon" />

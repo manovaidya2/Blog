@@ -82,3 +82,28 @@ exports.deleteBlog = async (req, res) => {
 };
 
 
+
+exports.searchBlogs = async (req, res) => {
+  try {
+    const query = req.query.q;
+
+    if (!query) {
+      return res.status(400).json({ message: "Query parameter 'q' is required" });
+    }
+
+    const blogs = await Blog.find({
+      $or: [
+        { title: { $regex: query, $options: "i" } },
+        { content: { $regex: query, $options: "i" } },
+        { richContent: { $regex: query, $options: "i" } }
+      ]
+    });
+
+    res.status(200).json(blogs);
+  } catch (error) {
+    res.status(500).json({ message: "Error searching blogs", error });
+  }
+};
+
+
+

@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 
-const authRoutes = require("./routes/authRoutes");
-const submissionRoutes = require("./routes/submissionRoutes");
+const authRoutes = require("./Routes/authRoutes");
+const submissionRoutes = require("./Routes/submissionRoutes");
 const journalRoutes = require("./Routes/journalRoutes");
 const blogsRoutes = require("./Routes/blogRoutes");
 const latestblogRoutes = require("./Routes/latestblogRoutes")
@@ -24,7 +24,7 @@ app.use('/uploads', express.static('uploads'));
 
 // Health Check Route
 app.get("/", (req, res) => {
-  res.send("Clinic Backend is Live ✅");
+  res.send("blog is live ✅");
 });
 
 // Routes

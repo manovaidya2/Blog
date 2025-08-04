@@ -21,6 +21,7 @@ import BlogDetail from "./journals/BlogDetail";
 import LatestBlogDetails from "./pages/LatestBlogDetails"
 
 import './App.css';
+import SearchResults from './components/SearchResults';
 
 function App() {
   return (
@@ -42,7 +43,9 @@ function App() {
            {/* <Route path="/journal" element={<Journal/>}  /> */}
            <Route path="/blogs/:blogId" element={<BlogDetail />} />
             <Route path="/journal/:journalId" element={<Journal />} />
-<Route path="/latest-blog/:blogId" element={<LatestBlogDetails />} />
+            <Route path="/latest-blog/:blogId" element={<LatestBlogDetails />} />
+             <Route path="/search" element={<SearchResults />} />
+
 
         </Routes>
       </Layout>

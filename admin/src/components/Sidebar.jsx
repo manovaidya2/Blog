@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   FaAngleDoubleLeft,
   FaAngleDoubleRight,
@@ -10,17 +10,21 @@ import {
   FaUserCheck,
   FaFolderOpen,
   FaCog,
+  FaSignOutAlt,
 } from "react-icons/fa";
 import "../style/sidebar.css";
 
 const Sidebar = ({ isCollapsed, toggleCollapse, isOpen }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
+    navigate("/login");
+  };
+
   return (
     <>
-      {/* Collapse/Expand Icon */}
-      {/* <button className="sidebar-collapse" onClick={toggleCollapse}>
-        {isCollapsed ? <FaAngleDoubleRight /> : <FaAngleDoubleLeft />}
-      </button> */}
-
+      {/* Sidebar Container */}
       <div
         className={`sidebar ${isOpen ? "open" : ""} ${
           isCollapsed ? "collapsed" : ""
@@ -59,17 +63,13 @@ const Sidebar = ({ isCollapsed, toggleCollapse, isOpen }) => {
               {!isCollapsed && <span>Menu Script</span>}
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/admin/issues" className={({ isActive }) => isActive ? "active-link" : ""}>
-              <FaFolderOpen className="icon" />
-              {!isCollapsed && <span>Issues</span>}
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/admin/settings" className={({ isActive }) => isActive ? "active-link" : ""}>
-              <FaCog className="icon" />
-              {!isCollapsed && <span>Settings</span>}
-            </NavLink>
+         
+       
+          <li onClick={handleLogout} style={{ cursor: "pointer" }}>
+            <div className="logout-link">
+              <FaSignOutAlt className="icon" />
+              {!isCollapsed && <span>Logout</span>}
+            </div>
           </li>
         </ul>
       </div>

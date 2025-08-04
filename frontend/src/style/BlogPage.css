@@ -287,3 +287,19 @@
 
 
 
+@media screen and (max-width: 768px) {
+  .blog-right {
+    width: 100%; /* ⬅️ Increased from 100% or fixed px */
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .blog-right {
+    width: 100%; /* ⬅️ Increased width for very small screens */
+    padding: 18px;
+    border-radius: 14px;
+  }
+}
