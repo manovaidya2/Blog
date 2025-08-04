@@ -47,12 +47,11 @@ const BlogPage = () => {
   const [topBlogs, setTopBlogs] = useState([]);
 
   useEffect(() => {
-   axios.get("https://blog-1-rqz1.onrender.com/api/latestblogs/active")
-
+    axios.get("http://localhost:5000/api/latestblogs/active")
       .then((res) => setActiveBlogs(res.data))
       .catch((err) => console.error(err));
 
-    axios.get("https://blog-1-rqz1.onrender.com/api/latestblogs/top")
+    axios.get("http://localhost:5000/api/latestblogs/top")
       .then((res) => setTopBlogs(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -80,3 +79,6 @@ const BlogPage = () => {
 };
 
 export default BlogPage;
+
+
+export { BlogCard };
