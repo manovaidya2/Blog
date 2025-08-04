@@ -1,4 +1,4 @@
-const Submission = require("../models/Submission");
+const Submission = require("../Models/Submission");
 
 const submitPaper = async (req, res) => {
   try {
