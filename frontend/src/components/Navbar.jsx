@@ -16,6 +16,9 @@ const Navbar = () => {
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  const [showSearch, setShowSearch] = useState(false);
+const [searchTerm, setSearchTerm] = useState("");
+
 
   // ✅ Fetch journals on mount
   useEffect(() => {
@@ -192,7 +195,25 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-right desktop-only">
-        <button className="search-btn"><FaSearch className="search-icon" /></button>
+        {showSearch && (
+  <input
+    type="text"
+    className="navbar-search-input"
+    placeholder="Search blogs..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    onKeyDown={(e) => {
+      if (e.key === "Enter") {
+        window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
+      }
+    }}
+  />
+)}
+
+     <button className="search-btn" onClick={() => setShowSearch(!showSearch)}>
+  <FaSearch className="search-icon" />
+</button>
+
         {user ? (
           <div
             className="user-dropdown"
