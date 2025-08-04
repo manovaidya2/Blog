@@ -44,7 +44,7 @@ function App() {
            <Route path="/blogs/:blogId" element={<BlogDetail />} />
             <Route path="/journal/:journalId" element={<Journal />} />
             <Route path="/latest-blog/:blogId" element={<LatestBlogDetails />} />
-             <Route path="/search" element={<SearchResults />} />
+            <Route path="/search" element={<SearchResults />} />
 
 
         </Routes>
