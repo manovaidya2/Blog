@@ -21,23 +21,23 @@ const LatestBlogTable = () => {
   }, []);
 
   const fetchBlogs = async () => {
-    const res = await axios.get("http://localhost:5000/api/latestblogs");
+    const res = await axios.get("https://api.airfresearch.com/api/latestblogs");
     setBlogs(res.data);
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/latestblogs/${id}`);
+    await axios.delete(`https://api.airfresearch.com/api/latestblogs/${id}`);
     fetchBlogs();
   };
 
   const toggleActive = async (id) => {
-    await axios.put(`http://localhost:5000/api/latestblogs/toggle/${id}`);
+    await axios.put(`https://api.airfresearch.com/api/latestblogs/toggle/${id}`);
     fetchBlogs();
   };
 
   const handleEdit = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/latestblogs/${id}`);
+      const res = await axios.get(`https://api.airfresearch.com/api/latestblogs/${id}`);
       const blog = res.data;
       setFormData({
         title: blog.title,
@@ -59,7 +59,7 @@ const LatestBlogTable = () => {
         ...formData,
         tags: formData.tags.split(",").map((tag) => tag.trim()),
       };
-      await axios.put(`http://localhost:5000/api/latestblogs/${editingBlogId}`, updatedData);
+      await axios.put(`https://api.airfresearch.com/api/latestblogs/${editingBlogId}`, updatedData);
       setEditingBlogId(null);
       fetchBlogs();
     } catch (err) {

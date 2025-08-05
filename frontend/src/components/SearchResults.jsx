@@ -19,7 +19,7 @@ const SearchResults = () => {
     if (!q) return;
     const fetchResults = async () => {
       try {
-      const res = await axios.get(`http://localhost:5000/api/blogs/search?q=${q}`);
+      const res = await axios.get(`https://api.airfresearch.com/api/blogs/search?q=${q}`);
 
         setResults(res.data);
       } catch (err) {
@@ -37,7 +37,7 @@ const SearchResults = () => {
           {results.length > 0 ? (
             results.map((blog) => (
               <div className="blog-card" key={blog._id}>
-                <img src={`http://localhost:5000${blog.imgUrl}`} alt="blog" className="blog-img" />
+                <img src={`https://api.airfresearch.com${blog.imgUrl}`} alt="blog" className="blog-img" />
                 <div className="blog-content">
                   <p className="meta">Search Match • {Math.floor(Math.random() * 5 + 3)} min read</p>
                   <h3>

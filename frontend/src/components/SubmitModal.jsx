@@ -33,7 +33,7 @@ const SubmitModal = ({ isOpen, onClose }) => {
     });
 
     try {
-      const res = await axios.post("http://localhost:5000/api/submissions/submit", data, {
+      const res = await axios.post("https://api.airfresearch.com/api/submissions/submit", data, {
   headers: {
     "Content-Type": "multipart/form-data",
   },

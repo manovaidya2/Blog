@@ -8,7 +8,7 @@ const JournalBlogPage = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/blogs/journal/${journalId}`)
+    axios.get(`https://api.airfresearch.com/api/blogs/journal/${journalId}`)
       .then(res => setBlogs(res.data))
       .catch(err => console.error("Error fetching blogs", err));
   }, [journalId]);

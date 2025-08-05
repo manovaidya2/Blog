@@ -10,7 +10,7 @@ const LatestBlogDetails = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/latestblogs/${blogId}`);
+        const res = await axios.get(`https://api.airfresearch.com/api/latestblogs/${blogId}`);
         setBlog(res.data);
       } catch (err) {
         console.error("Error fetching latest blog details", err);

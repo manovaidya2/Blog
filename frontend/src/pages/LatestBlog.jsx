@@ -51,10 +51,10 @@ const LatestBlog = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/latestblogs");
+        const res = await axios.get("https://api.airfresearch.com/api/latestblogs");
         setBlogs(res.data);
 
-        const topRes = await axios.get("http://localhost:5000/api/latestblogs/top");
+        const topRes = await axios.get("https://api.airfresearch.com/api/latestblogs/top");
         setTopBlogs(topRes.data);
       } catch (err) {
         console.error("Failed to fetch blogs", err);

@@ -25,12 +25,12 @@ const Dashboard = () => {
 
   const fetchDashboardData = async () => {
     try {
-      const blogRes = await axios.get("http://localhost:5000/api/latestblogs");
+      const blogRes = await axios.get("https://api.airfresearch.com/api/latestblogs");
       const blogs = blogRes.data;
       setBlogData(blogs);
 
       const activeRes = await axios.get(
-        "http://localhost:5000/api/latestblogs/active"
+        "https://api.airfresearch.com/api/latestblogs/active"
       );
       setActiveBlogs(activeRes.data);
 
@@ -58,12 +58,12 @@ const Dashboard = () => {
       });
       setMonthlyCounts(counts);
 
-      const journalRes = await axios.get("http://localhost:5000/api/journals/getJournals")
+      const journalRes = await axios.get("https://api.airfresearch.com/api/journals/getJournals")
 ;
       setJournals(journalRes.data);
 
       const submissionRes = await axios.get(
-  "http://localhost:5000/api/submissions/all"
+  "https://api.airfresearch.com/api/submissions/all"
 );
 
       setSubmissions(submissionRes.data);

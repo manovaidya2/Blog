@@ -13,7 +13,7 @@ const AdminBlogTable = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/blogs/getAllBlogs");
+      const res = await axios.get("https://api.airfresearch.com/api/blogs/getAllBlogs");
       setBlogs(res.data);
     } catch (err) {
       console.error("Error fetching blogs", err);
@@ -23,7 +23,7 @@ const AdminBlogTable = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/blogs/deleteBlog/${id}`);
+      await axios.delete(`https://api.airfresearch.com/api/blogs/deleteBlog/${id}`);
       alert("Blog deleted successfully!");
       setBlogs(blogs.filter((blog) => blog._id !== id));
     } catch (err) {
@@ -57,7 +57,7 @@ const AdminBlogTable = () => {
               <tr key={blog._id}>
                 <td>
                   <img
-                    src={`http://localhost:5000${blog.imgUrl}`}
+                    src={`https://api.airfresearch.com${blog.imgUrl}`}
                     alt={blog.title}
                     className="blog-thumb"
                   />

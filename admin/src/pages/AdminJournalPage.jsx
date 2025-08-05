@@ -11,7 +11,7 @@ const AdminJournalPage = () => {
 
   const fetchJournals = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/journals/getJournals");
+      const res = await axios.get("https://api.airfresearch.com/api/journals/getJournals");
       setJournals(res.data);
     } catch (error) {
       console.error("Failed to fetch journals:", error);
@@ -28,7 +28,7 @@ const handleEdit = (journal) => {
 
 const handleDelete = async (id) => {
   try {
-    await axios.delete(`http://localhost:5000/api/journals/deleteJournal/${id}`);
+    await axios.delete(`https://api.airfresearch.com/api/journals/deleteJournal/${id}`);
     fetchJournals();
   } catch (err) {
     console.error("Failed to delete journal:", err);
@@ -44,11 +44,11 @@ const handleDelete = async (id) => {
     if (image) formData.append("img", image);
 
     if (editingJournal) {
-      await axios.put(`http://localhost:5000/api/journals/updateJournal/${editingJournal._id}`, formData, {
+      await axios.put(`https://api.airfresearch.com/api/journals/updateJournal/${editingJournal._id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" }
       });
     } else {
-      await axios.post("http://localhost:5000/api/journals/addJournal", formData, {
+      await axios.post("https://api.airfresearch.com/api/journals/addJournal", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
     }
@@ -120,7 +120,7 @@ const handleDelete = async (id) => {
         <td>{j.summaryAboutTitle}</td>
         <td>
           <img
-            src={`http://localhost:5000/uploads/${j.img}`}
+            src={`https://api.airfresearch.com/uploads/${j.img}`}
             alt={j.name}
             className="journal-table-image"
           />

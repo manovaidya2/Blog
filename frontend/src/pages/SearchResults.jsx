@@ -17,7 +17,7 @@ const SearchResults = () => {
   useEffect(() => {
     if (!q) return;
     axios
-      .get(`http://localhost:5000/api/latestblogs/search?q=${q}`)
+      .get(`https://api.airfresearch.com/api/latestblogs/search?q=${q}`)
       .then((res) => setResults(res.data))
       .catch((err) => console.error("Search failed", err));
   }, [q]);

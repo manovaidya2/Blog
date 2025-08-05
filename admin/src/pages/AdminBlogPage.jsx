@@ -18,7 +18,7 @@ const AdminBlogPage = () => {
   // Fetch available journals
   const fetchJournals = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/journals/getJournals");
+      const res = await axios.get("https://api.airfresearch.com/api/journals/getJournals");
       setJournals(res.data);
     } catch (error) {
       console.error("Failed to fetch journals", error);
@@ -43,7 +43,7 @@ const AdminBlogPage = () => {
   if (imgUrl) formData.append("img", imgUrl); // File from input[type="file"]
 
   try {
-    const res = await axios.post("http://localhost:5000/api/blogs/add", formData, {
+    const res = await axios.post("https://api.airfresearch.com/api/blogs/add", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

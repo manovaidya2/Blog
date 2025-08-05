@@ -47,11 +47,11 @@ const BlogPage = () => {
   const [topBlogs, setTopBlogs] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/latestblogs/active")
+    axios.get("https://api.airfresearch.com/api/latestblogs/active")
       .then((res) => setActiveBlogs(res.data))
       .catch((err) => console.error(err));
 
-    axios.get("http://localhost:5000/api/latestblogs/top")
+    axios.get("https://api.airfresearch.com/api/latestblogs/top")
       .then((res) => setTopBlogs(res.data))
       .catch((err) => console.error(err));
   }, []);

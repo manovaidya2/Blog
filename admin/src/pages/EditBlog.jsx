@@ -21,7 +21,7 @@ const EditBlog = () => {
 
   const fetchBlog = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/blogs/getBlogById/${id}`);
+      const res = await axios.get(`https://api.airfresearch.com/api/blogs/getBlogById/${id}`);
       const { title, content, richContent, authors, journalId } = res.data;
       setFormData({
         title,
@@ -42,7 +42,7 @@ const EditBlog = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/blogs/updateblog/${id}`, formData);
+      await axios.put(`https://api.airfresearch.com/api/blogs/updateblog/${id}`, formData);
       alert("Blog updated successfully!");
     } catch (err) {
       console.error("Failed to update blog", err);

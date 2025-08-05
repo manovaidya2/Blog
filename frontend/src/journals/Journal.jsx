@@ -86,7 +86,7 @@ import { Link } from "react-router-dom";
 const BlogHeader = ({ journal }) => (
   <div className="blog-header">
     <img
-      src={`http://localhost:5000/uploads/${journal.img}`}
+      src={`https://api.airfresearch.com/uploads/${journal.img}`}
       alt={journal.name}
       className="banner-img"
     />
@@ -99,7 +99,7 @@ const BlogHeader = ({ journal }) => (
 
 const BlogCard = ({ blog }) => (
   <div className="blog-card">
-  <img src={`http://localhost:5000${blog.imgUrl}`} alt="blog" className="blog-img" />
+  <img src={`https://api.airfresearch.com${blog.imgUrl}`} alt="blog" className="blog-img" />
 
     <div className="blog-content">
       <p className="meta">Latest Blog • {Math.floor(Math.random() * 5 + 3)} min read</p>
@@ -147,7 +147,7 @@ const Journal = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/journals/getJournalWithBlogs/${journalId}`);
+        const res = await axios.get(`https://api.airfresearch.com/api/journals/getJournalWithBlogs/${journalId}`);
         
         // Fix: Access journal and blogs properly from API response
         setJournal(res.data.journal);

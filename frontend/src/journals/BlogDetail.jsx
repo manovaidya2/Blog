@@ -11,7 +11,7 @@ const BlogDetail = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-      const res = await axios.get(`http://localhost:5000/api/blogs/getBlogById/${blogId}`);
+      const res = await axios.get(`https://api.airfresearch.com/api/blogs/getBlogById/${blogId}`);
 
         setBlog(res.data);
       } catch (err) {
@@ -27,7 +27,7 @@ const BlogDetail = () => {
   return (
     <div className="blog-detail">
       <div className="blog-banner">
-        <img src={`http://localhost:5000${blog.imgUrl}`} alt={blog.title} />
+        <img src={`https://api.airfresearch.com${blog.imgUrl}`} alt={blog.title} />
       </div>
       <div className="blog-meta">
         <p>Research Article / Written by {blog.authors} Authors</p>

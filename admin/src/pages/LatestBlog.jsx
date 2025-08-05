@@ -40,7 +40,7 @@ const LatestBlog = () => {
 
     try {
       console.log("Submitting blog data:", blogData);
-      const res = await axios.post("http://localhost:5000/api/latestblogs", blogData);
+      const res = await axios.post("https://api.airfresearch.com/api/latestblogs", blogData);
       setMessage("Blog successfully posted!");
       setFormData({ title: "", description: "", content: "", authors: "", imageUrl: "", tags: "" });
     } catch (err) {
@@ -80,7 +80,7 @@ const LatestBlog = () => {
             imageForm.append("image", file);
 
             try {
-              const res = await axios.post("http://localhost:5000/api/latestblogs/upload", imageForm);
+              const res = await axios.post("https://api.airfresearch.com/api/latestblogs/upload", imageForm);
               setFormData((prev) => ({ ...prev, imageUrl: res.data.imageUrl }));
             } catch (err) {
               console.error("Image upload failed", err);

@@ -16,7 +16,7 @@ const Login = () => {
     const endpoint = isLogin ? "/api/auth/login" : "/api/auth/signup";
 
     try {
-      const res = await fetch(`http://localhost:5000${endpoint}`, {
+      const res = await fetch(`https://api.airfresearch.com${endpoint}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

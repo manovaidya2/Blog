@@ -7,7 +7,7 @@ const AllSubmissions = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/submissions/all")
+      .get("https://api.airfresearch.com/api/submissions/all")
       .then((res) => setSubmissions(res.data))
       .catch((err) => console.error("Error fetching submissions:", err));
   }, []);
@@ -49,7 +49,7 @@ const AllSubmissions = () => {
             <td>
               {sub.pdfFilePath ? (
                 <a
-                  href={`http://localhost:5000/${sub.pdfFilePath}`}
+                  href={`https://api.airfresearch.com/${sub.pdfFilePath}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

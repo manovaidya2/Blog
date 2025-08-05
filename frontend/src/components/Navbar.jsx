@@ -23,7 +23,7 @@ const [searchTerm, setSearchTerm] = useState("");
   // ✅ Fetch journals on mount
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/journals/getJournals")
+      .get("https://api.airfresearch.com/api/journals/getJournals")
       .then(res => setJournals(res.data))
       .catch(err => console.error("Failed to load journals", err));
   }, []);
