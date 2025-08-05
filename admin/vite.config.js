@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: true, // Accept connections from any host
-    allowedHosts: ['admin.airfresearch.com'] // Explicitly allow this host
+    allowedHosts: [
+      'admin.airfresearch.com',
+      'localhost',
+      '127.0.0.1'
+    ]
   }
 })
