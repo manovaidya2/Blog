@@ -29,14 +29,14 @@ app.use(cors({
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error("Not allowed by CORS"));
+      callback(null,true);
     }
   },
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true
 }));
 
-app.options("*", cors()); // Handle pre-flight
+// app.options("*", cors()); // Handle pre-flight
 
 app.use(express.json());
 

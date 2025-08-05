@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const latestBlogSchema = new mongoose.Schema({
   title: { type: String, required: true },
@@ -7,9 +7,8 @@ const latestBlogSchema = new mongoose.Schema({
   authors: { type: Number, required: true },
   imageUrl: { type: String, required: true },
   tags: { type: [String], default: [] },
-  isActive: { type: Boolean, default: false }, // Add this
+  isActive: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now },
 });
 
-
-export default mongoose.model("LatestBlog", latestBlogSchema);
+module.exports = mongoose.model("LatestBlog", latestBlogSchema);

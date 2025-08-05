@@ -1,6 +1,6 @@
-import LatestBlog from "../Models/LatestBlog.js";
+const LatestBlog = require("../Models/LatestBlog");
 
-export const getAllBlogs = async (req, res) => {
+const getAllBlogs = async (req, res) => {
   try {
     const blogs = await LatestBlog.find().sort({ createdAt: -1 });
     res.json(blogs);
@@ -9,7 +9,7 @@ export const getAllBlogs = async (req, res) => {
   }
 };
 
-export const getTopResearched = async (req, res) => {
+const getTopResearched = async (req, res) => {
   try {
     const blogs = await LatestBlog.find().sort({ createdAt: -1 }).limit(5);
     res.json(blogs);
@@ -18,7 +18,7 @@ export const getTopResearched = async (req, res) => {
   }
 };
 
-export const createBlog = async (req, res) => {
+const createBlog = async (req, res) => {
   try {
     console.log("Received Blog Data:", req.body);
     const blog = new LatestBlog(req.body);
@@ -30,7 +30,7 @@ export const createBlog = async (req, res) => {
   }
 };
 
-export const uploadImage = async (req, res) => {
+const uploadImage = async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: "No file uploaded" });
@@ -42,8 +42,7 @@ export const uploadImage = async (req, res) => {
   }
 };
 
-
-export const getBlogById = async (req, res) => {
+const getBlogById = async (req, res) => {
   try {
     const blog = await LatestBlog.findById(req.params.id);
     if (!blog) return res.status(404).json({ error: "Blog not found" });
@@ -53,8 +52,7 @@ export const getBlogById = async (req, res) => {
   }
 };
 
-
-export const toggleActiveStatus = async (req, res) => {
+const toggleActiveStatus = async (req, res) => {
   try {
     const blog = await LatestBlog.findById(req.params.id);
     if (!blog) return res.status(404).json({ error: "Blog not found" });
@@ -67,7 +65,7 @@ export const toggleActiveStatus = async (req, res) => {
   }
 };
 
-export const deleteBlog = async (req, res) => {
+const deleteBlog = async (req, res) => {
   try {
     await LatestBlog.findByIdAndDelete(req.params.id);
     res.status(200).json({ message: "Blog deleted" });
@@ -76,7 +74,7 @@ export const deleteBlog = async (req, res) => {
   }
 };
 
-export const updateBlog = async (req, res) => {
+const updateBlog = async (req, res) => {
   try {
     const updated = await LatestBlog.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.status(200).json(updated);
@@ -85,11 +83,23 @@ export const updateBlog = async (req, res) => {
   }
 };
 
-export const getActiveBlogs = async (req, res) => {
+const getActiveBlogs = async (req, res) => {
   try {
     const activeBlogs = await LatestBlog.find({ isActive: true }).sort({ createdAt: -1 });
     res.status(200).json(activeBlogs);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
+};
+
+module.exports = {
+  getAllBlogs,
+  getTopResearched,
+  createBlog,
+  uploadImage,
+  getBlogById,
+  toggleActiveStatus,
+  deleteBlog,
+  updateBlog,
+  getActiveBlogs,
 };
