@@ -7,16 +7,37 @@ const authRoutes = require("./Routes/authRoutes");
 const submissionRoutes = require("./Routes/submissionRoutes");
 const journalRoutes = require("./Routes/journalRoutes");
 const blogsRoutes = require("./Routes/blogRoutes");
-const latestblogRoutes = require("./Routes/latestblogRoutes")
+const latestblogRoutes = require("./Routes/latestblogRoutes");
 
 const app = express();
 
-// Middleware
+// ✅ CORS Allowed Origins
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "https://api.airfresearch.com/",
+  "https://blog-1-rqz1.onrender.com",
+  "https://admin.airfresearch.com",
+  "https://www.airfresearch.com",
+  "https://airfresearch.com"
+];
+
+
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:5174", "https://blog-1-rqz1.onrender.com"],
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, curl, Postman)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  credentials: true,
+  credentials: true
 }));
+
+app.options("*", cors()); // Handle pre-flight
+
 app.use(express.json());
 
 // 🔥 Serve uploaded images
