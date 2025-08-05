@@ -4,10 +4,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    allowedHosts: [
-      'admin.airfresearch.com',
-      'localhost',
-      '127.0.0.1'
-    ]
+    host: true, // listen on all addresses
+    // allow all hosts (not recommended for production)
+    allowedHosts: "all"
   }
 })
