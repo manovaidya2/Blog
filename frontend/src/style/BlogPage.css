@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   padding: 40px 60px;
-  background: url('../image/Home.jpg') no-repeat center center; /* replace with your image */
+  background: url('../../public/home.jpg') no-repeat center center; /* replace with your image */
   background-size: cover;
   font-family: 'Segoe UI', sans-serif;
 }
