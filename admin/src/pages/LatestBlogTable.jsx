@@ -73,6 +73,30 @@ const LatestBlogTable = () => {
       [e.target.name]: e.target.value,
     }));
   };
+  const handleImageUpload = async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const imageData = new FormData();
+  imageData.append("image", file);
+
+  try {
+    const res = await axios.post("https://api.airfresearch.com/api/upload", imageData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    // Assuming response has { imageUrl: "https://..." }
+    setFormData((prev) => ({
+      ...prev,
+      imageUrl: res.data.imageUrl,
+    }));
+  } catch (err) {
+    console.error("Image upload failed:", err);
+  }
+};
+
 
   return (
     <div className="admin-table-container">
@@ -140,8 +164,13 @@ const LatestBlogTable = () => {
             <label>Authors</label>
             <input name="authors" value={formData.authors} onChange={handleInputChange} />
 
-            <label>Image URL</label>
-            <input name="imageUrl" value={formData.imageUrl} onChange={handleInputChange} />
+           <label>Upload Image</label>
+<input type="file" accept="image/*" onChange={handleImageUpload} />
+
+{formData.imageUrl && (
+  <img src={formData.imageUrl} alt="Uploaded" className="preview-img" />
+)}
+
 
             <label>Tags (comma separated)</label>
             <input name="tags" value={formData.tags} onChange={handleInputChange} />
