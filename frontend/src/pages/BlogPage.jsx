@@ -8,7 +8,7 @@ const BlogCard = ({ img, title, description, authors, id }) => (
   <div className="blog-card">
     <img src={img} alt="blog" className="blog-img" />
     <div className="blog-content">
-      <p className="meta">Latest Blog • 5 min read</p>
+      <p className="meta">Research Paper • 5 min read</p>
       <h3>
         <Link to={`/latest-blog/${id}`} className="blog-title-link">
           {title}

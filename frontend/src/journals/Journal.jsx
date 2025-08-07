@@ -102,7 +102,7 @@ const BlogCard = ({ blog }) => (
   <img src={`https://api.airfresearch.com${blog.imgUrl}`} alt="blog" className="blog-img" />
 
     <div className="blog-content">
-      <p className="meta">Latest Blog • {Math.floor(Math.random() * 5 + 3)} min read</p>
+      <p className="meta">Research Paper • {Math.floor(Math.random() * 5 + 3)} min read</p>
    {blog._id && (
   <h3>
     <Link to={`/blogs/${blog._id}`}>{blog.title}</Link>
