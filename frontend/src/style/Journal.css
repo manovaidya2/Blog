@@ -74,7 +74,7 @@
   }
 
   .hero-overlay h1 {
-    font-size: 28px;
+    font-size: 22px;
     line-height: 1.2;
   }
 
@@ -91,7 +91,7 @@
 
 @media screen and (max-width: 480px) {
   .hero-overlay h1 {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   .hero-overlay p {
@@ -138,8 +138,8 @@
 }
 
 .banner-overlay h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 600;
   margin-bottom: 10px;
 }
 
