@@ -2,7 +2,7 @@
   font-family: 'Segoe UI', sans-serif;
   font-weight: normal;
   padding: 0 30px 60px; /* Added bottom padding */
-  background-image: url('../image/home.jpg'); /* Adjust path as needed */
+  background-image: url('../../public/home.jpg'); /* Adjust path as needed */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
