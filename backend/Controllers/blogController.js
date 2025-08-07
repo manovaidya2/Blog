@@ -1,8 +1,10 @@
 const Blog = require("../Models/Blog");
 // controllers/blogController.js
+// controllers/blogController.js
+
 exports.addBlog = async (req, res) => {
   try {
-    const { title, content, journalId, authors, richContent } = req.body;
+    const { title, content, journalId, authors, authorName, richContent } = req.body;
     const imgFile = req.file;
 
     if (!title || !content || !journalId) {
@@ -15,6 +17,7 @@ exports.addBlog = async (req, res) => {
       richContent,
       journalId,
       authors: authors || Math.floor(Math.random() * 5) + 1,
+      authorName, // ✅ Store new field
       imgUrl: imgFile
         ? `/uploads/${imgFile.filename}`
         : `/images/blog${Math.floor(Math.random() * 3) + 1}.jpg`,

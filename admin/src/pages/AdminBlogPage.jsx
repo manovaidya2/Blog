@@ -13,6 +13,8 @@ const AdminBlogPage = () => {
   const [imgUrl, setImgUrl] = useState("");
   const [journals, setJournals] = useState([]);
   const [richContent, setRichContent] = useState("");
+  const [authorName, setAuthorName] = useState("");
+
 
 
   // Fetch available journals
@@ -40,6 +42,8 @@ const AdminBlogPage = () => {
   formData.append("journalId", journalId);
 
   if (authors) formData.append("authors", authors);
+  if (authorName) formData.append("authorName", authorName);
+
   if (imgUrl) formData.append("img", imgUrl); // File from input[type="file"]
 
   try {
@@ -55,6 +59,8 @@ const AdminBlogPage = () => {
     setRichContent("");
     setJournalId("");
     setAuthors("");
+    setAuthorName("");
+
     setImgUrl("");
   } catch (error) {
     console.error("Error submitting blog", error);
@@ -123,6 +129,14 @@ const AdminBlogPage = () => {
           onChange={(e) => setAuthors(e.target.value)}
           className="admin-input"
         />
+        <input
+  type="text"
+  placeholder="Author Name"
+  value={authorName}
+  onChange={(e) => setAuthorName(e.target.value)}
+  className="admin-input"
+/>
+
 
         <input
   type="file"

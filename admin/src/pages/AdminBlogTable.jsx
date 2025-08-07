@@ -47,6 +47,8 @@ const AdminBlogTable = () => {
               <th>Title</th>
               <th>Journal</th>
               <th>Authors</th>
+              <th>Author Name</th>
+
               <th>Date</th>
               <th>Rich Content</th>
               <th>Actions</th>
@@ -65,6 +67,8 @@ const AdminBlogTable = () => {
                 <td>{blog.title}</td>
                 <td>{blog.journalId?.name || "N/A"}</td>
                 <td>{blog.authors}</td>
+                <td>{blog.authorName}</td>
+
                 <td>{new Date(blog.createdAt).toLocaleDateString()}</td>
                 <td>
                   <div
