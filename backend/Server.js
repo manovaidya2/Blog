@@ -13,8 +13,8 @@ const app = express();
 
 // ✅ CORS Allowed Origins
 const allowedOrigins = [
-  // "http://localhost:5173",
-  // "http://localhost:5174",
+  "http://localhost:5173",
+  "http://localhost:5174",
   "https://api.airfresearch.com/",
   "https://blog-1-rqz1.onrender.com",
   "https://admin.airfresearch.com",
