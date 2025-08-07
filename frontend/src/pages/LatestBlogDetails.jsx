@@ -29,7 +29,7 @@ const LatestBlogDetails = () => {
       </div>
 
       <div className="latest-blog-meta">
-        <p>Written by {blog.authors} Authors</p>
+        <p>Written by {blog.tags}</p>
         <p className="pub">Published on {new Date(blog.createdAt).toLocaleDateString()}</p>
         {/* <div className="latest-blog-tags">
           {blog.tags.map((tag, i) => (

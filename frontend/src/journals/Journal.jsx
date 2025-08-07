@@ -113,7 +113,7 @@ const BlogCard = ({ blog }) => (
       <p>{blog.content.slice(0, 200)}...</p>
       <div className="tags">
         <button className="tag">Research Article</button>
-        <button className="tag">Written by {blog.authors} Authors</button>
+        <button className="tag">Written by {blog.authorName} Authors</button>
       </div>
     </div>
   </div>
@@ -132,7 +132,7 @@ const TopResearched = ({ blogs }) => (
 
         <p className="top-desc">{blog.content.slice(0, 100)}...</p>
         <p className="top-meta">
-          Posted {new Date(blog.createdAt).toLocaleDateString()} | Written by {blog.authors} Authors
+          Posted {new Date(blog.createdAt).toLocaleDateString()} | Written by {blog.authorName} 
         </p>
       </div>
     ))}

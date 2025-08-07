@@ -30,7 +30,7 @@ const BlogDetail = () => {
         <img src={`https://api.airfresearch.com${blog.imgUrl}`} alt={blog.title} />
       </div>
       <div className="blog-meta">
-        <p>Research Article / Written by {blog.authors} Authors</p>
+        <p>Research Article / Written by {blog.authorName} </p>
         <p>Published on {new Date(blog.createdAt).toLocaleDateString()}</p>
       </div>
       <h1 className="blog-title">{blog.title}</h1>
