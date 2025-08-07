@@ -5,10 +5,12 @@ const latestBlogSchema = new mongoose.Schema({
   description: { type: String, required: true },
   content: { type: String, required: true },
   authors: { type: Number, required: true },
+  authorName: { type: String, required: true }, // ➕ New field
   imageUrl: { type: String, required: true },
   tags: { type: [String], default: [] },
   isActive: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now },
 });
+
 
 module.exports = mongoose.model("LatestBlog", latestBlogSchema);

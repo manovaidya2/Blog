@@ -17,7 +17,7 @@ const BlogCard = ({ img, title, description, authors, id }) => (
       <p>{description}</p>
       <div className="tags">
         <button className="tag">Research Article</button>
-        <button className="tag">Written by {authors} Authors</button>
+        <button className="tag">Written by {authors} </button>
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@ const TopResearched = ({ topBlogs }) => (
         </Link>
         <p className="top-desc">{blog.description}</p>
         <p className="top-meta">
-          Posted {new Date(blog.createdAt).toLocaleDateString()} | Written by {blog.authors} Authors
+          Posted {new Date(blog.createdAt).toLocaleDateString()} | Written by {blog.tags}
         </p>
       </div>
     ))}
@@ -66,7 +66,7 @@ const BlogPage = () => {
   img={blog.imageUrl}
   title={blog.title}
   description={blog.description}
-  authors={blog.authors}
+  authors={blog.tags}
 />
 
         ))}

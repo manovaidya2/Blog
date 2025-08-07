@@ -20,8 +20,35 @@ const getTopResearched = async (req, res) => {
 
 const createBlog = async (req, res) => {
   try {
-    console.log("Received Blog Data:", req.body);
-    const blog = new LatestBlog(req.body);
+    const {
+      title,
+      description,
+      content,
+      authors,
+      authorName,
+      imageUrl,
+      tags
+    } = req.body;
+
+    if (!title || !description || !content || !authors || !authorName || !imageUrl) {
+      return res.status(400).json({ error: "All required fields must be filled" });
+    }
+
+    // Convert tags to array if it's a string
+    const tagArray = Array.isArray(tags)
+      ? tags
+      : tags?.split(",").map((tag) => tag.trim());
+
+    const blog = new LatestBlog({
+      title,
+      description,
+      content,
+      authors,
+      authorName,
+      imageUrl,
+      tags: tagArray,
+    });
+
     await blog.save();
     res.status(201).json(blog);
   } catch (err) {
@@ -29,6 +56,7 @@ const createBlog = async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 };
+
 
 const uploadImage = async (req, res) => {
   try {

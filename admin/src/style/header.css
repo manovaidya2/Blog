@@ -17,6 +17,7 @@
 .admin-title {
   font-size: 1.5rem;
   margin: 0;
+  text-align: center;
 }
 
 /* Sidebar toggle icon (hamburger) - hidden on desktop */
@@ -42,6 +43,7 @@
 
   .admin-title {
     font-size: 1.2rem;
+  
   }
 }
 

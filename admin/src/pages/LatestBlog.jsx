@@ -11,6 +11,7 @@ const LatestBlog = () => {
     description: "",
     content: "",
     authors: "",
+    authorName: "",
     imageUrl: "",
     tags: "",
   });
@@ -22,32 +23,41 @@ const LatestBlog = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    const blogData = {
-      ...formData,
-      authors: formData.authors ? parseInt(formData.authors) : 1,
-      tags: Array.isArray(formData.tags)
-        ? formData.tags
-        : formData.tags.split(",").map((tag) => tag.trim()),
-    };
+ const blogData = {
+  ...formData,
+  authors: formData.authors ? parseInt(formData.authors) : 1,
+  tags: Array.isArray(formData.tags)
+    ? formData.tags
+    : formData.tags.split(",").map((tag) => tag.trim()),
+};
 
-    if (!blogData.title || !blogData.description || !blogData.content || !blogData.imageUrl) {
-      setMessage("All required fields must be filled");
-      return;
-    }
+  if (!blogData.title || !blogData.description || !blogData.content || !blogData.imageUrl || !blogData.authorName) {
+    setMessage("All required fields must be filled");
+    return;
+  }
 
-    try {
-      console.log("Submitting blog data:", blogData);
-      const res = await axios.post("https://api.airfresearch.com/api/latestblogs", blogData);
-      setMessage("Blog successfully posted!");
-      setFormData({ title: "", description: "", content: "", authors: "", imageUrl: "", tags: "" });
-    } catch (err) {
-      console.error(err);
-      setMessage("Failed to post blog.");
-    }
-  };
+  try {
+    console.log("Submitting blog data:", blogData);
+    const res = await axios.post("https://api.airfresearch.com/api/latestblogs", blogData);
+    setMessage("Blog successfully posted!");
+    setFormData({
+      title: "",
+      description: "",
+      content: "",
+     
+      authorName: "", // ✅ reset here too
+      imageUrl: "",
+      tags: ""
+    });
+  } catch (err) {
+    console.error(err);
+    setMessage("Failed to post blog.");
+  }
+};
+
 
   return (
     <div className="admin-blog-container">
@@ -69,7 +79,7 @@ const LatestBlog = () => {
           />
         </div>
 
-        <input type="number" name="authors" value={formData.authors} placeholder="Number of Authors" onChange={handleChange} required />
+     
 
         <input
           type="file"
@@ -88,7 +98,7 @@ const LatestBlog = () => {
           }}
         />
 
-        <input type="text" name="tags" value={formData.tags} placeholder="Tags (comma separated)" onChange={handleChange} required />
+        <input type="text" name="tags" value={formData.tags} placeholder="Auther Name" onChange={handleChange} required />
         <button type="submit">Post Blog</button>
       </form>
       <LatestBlogTable/>

@@ -9,6 +9,7 @@ import AllSubmissions from './pages/AllSubmissions';
 import EditBlog from './pages/EditBlog';
 import Login from './pages/Login';
 import PrivateRoute from './pages/PrivateRoute';
+import "./App.css"
 
 function App() {
   return (

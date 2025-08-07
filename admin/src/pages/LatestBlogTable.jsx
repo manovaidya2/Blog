@@ -108,8 +108,8 @@ const LatestBlogTable = () => {
             <tr>
               <th>Image</th>
               <th>Title</th>
-              <th>Authors</th>
-              <th>Tags</th>
+              {/* <th>Authors</th> */}
+              <th>Auther Name</th>
               <th>Homepage</th>
               <th>Actions</th>
             </tr>
@@ -121,7 +121,7 @@ const LatestBlogTable = () => {
                   <img src={blog.imageUrl} alt="blog" className="blog-thumb" />
                 </td>
                 <td>{blog.title}</td>
-                <td>{blog.authors}</td>
+                {/* <td>{blog.authors}</td> */}
                 <td>{blog.tags.join(", ")}</td>
                 <td>
                   <span className={`status-badge ${blog.isActive ? "active" : "inactive"}`}>
@@ -161,8 +161,8 @@ const LatestBlogTable = () => {
               }
             />
 
-            <label>Authors</label>
-            <input name="authors" value={formData.authors} onChange={handleInputChange} />
+            {/* <label>Authors</label>
+            <input name="authors" value={formData.authors} onChange={handleInputChange} /> */}
 
            <label>Upload Image</label>
 <input type="file" accept="image/*" onChange={handleImageUpload} />
@@ -172,7 +172,7 @@ const LatestBlogTable = () => {
 )}
 
 
-            <label>Tags (comma separated)</label>
+            <label>Author Name</label>
             <input name="tags" value={formData.tags} onChange={handleInputChange} />
 
             <div className="modal-buttons">
