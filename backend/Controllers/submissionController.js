@@ -47,4 +47,18 @@ const getAllSubmissions = async (req, res) => {
   }
 };
 
-module.exports = { submitPaper, getAllSubmissions };
+const deleteSubmission = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Submission.findByIdAndDelete(id);
+    res.status(200).json({ message: "Submission deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Failed to delete submission" });
+  }
+};
+
+module.exports = { submitPaper, getAllSubmissions,deleteSubmission };
+
+
+

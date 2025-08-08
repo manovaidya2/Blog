@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const path = require("path");
-const { submitPaper, getAllSubmissions } = require("../Controllers/submissionController");
+const { submitPaper, getAllSubmissions, deleteSubmission } = require("../Controllers/submissionController");
 
 // Set up multer for PDF upload
 const storage = multer.diskStorage({
@@ -26,5 +26,6 @@ const upload = multer({
 
 router.post("/submit", upload.single("pdf"), submitPaper);
 router.get("/all", getAllSubmissions); // ✅ Added GET route
+router.delete("/delete/:id", deleteSubmission);
 
 module.exports = router;

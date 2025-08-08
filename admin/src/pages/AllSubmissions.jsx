@@ -11,6 +11,18 @@ const AllSubmissions = () => {
       .then((res) => setSubmissions(res.data))
       .catch((err) => console.error("Error fetching submissions:", err));
   }, []);
+const handleDelete = async (id) => {
+  const confirmDelete = window.confirm("Are you sure you want to delete this submission?");
+  if (!confirmDelete) return;
+
+  try {
+    await axios.delete(`https://api.airfresearch.com/api/submissions/delete/${id}`);
+    setSubmissions((prev) => prev.filter((sub) => sub._id !== id));
+  } catch (err) {
+    console.error("Error deleting submission:", err);
+    alert("Failed to delete submission");
+  }
+};
 
   return (
     <div className="submission-container">
@@ -32,6 +44,8 @@ const AllSubmissions = () => {
           <th>Field of Study</th>
           <th>PDF</th>
           <th>Submitted On</th>
+          <th>Action</th>
+
         </tr>
       </thead>
       <tbody>
@@ -60,6 +74,15 @@ const AllSubmissions = () => {
               )}
             </td>
             <td>{new Date(sub.createdAt).toLocaleDateString()}</td>
+            <td>
+  <button
+    className="delete-btn"
+    onClick={() => handleDelete(sub._id)}
+  >
+    Delete
+  </button>
+</td>
+
           </tr>
         ))}
       </tbody>

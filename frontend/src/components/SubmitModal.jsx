@@ -12,7 +12,7 @@ const SubmitModal = ({ isOpen, onClose }) => {
     coAuthor2: "",
     coAuthor3: "",
     researchTopic: "",
-   fieldOfStudy: "",
+    fieldOfStudy: "",
     pdf: null,
   });
 
@@ -27,23 +27,50 @@ const SubmitModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check required fields
+    const requiredFields = [
+      "fullName",
+      "fatherName",
+      "institutionName",
+      "authorName",
+      "researchTopic",
+      "fieldOfStudy",
+    ];
+
+    for (let field of requiredFields) {
+      if (!formData[field] || formData[field].trim() === "") {
+        alert(`❌ Please fill in the "${field}" field.`);
+        return;
+      }
+    }
+
+    if (!formData.pdf) {
+      alert("❌ Please upload a PDF file.");
+      return;
+    }
+
     const data = new FormData();
     Object.keys(formData).forEach((key) => {
       data.append(key, formData[key]);
     });
 
     try {
-      const res = await axios.post("https://api.airfresearch.com/api/submissions/submit", data, {
-  headers: {
-    "Content-Type": "multipart/form-data",
-  },
-});
+      const res = await axios.post(
+        "https://api.airfresearch.com/api/submissions/submit",
+        data,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
-      alert("Submission successful!");
+      alert("✅ Submission successful!");
       onClose();
     } catch (err) {
       console.error(err);
-      alert("Submission failed.");
+      alert("❌ Submission failed.");
     }
   };
 
@@ -56,21 +83,21 @@ const SubmitModal = ({ isOpen, onClose }) => {
         <h2>Please enter the following details</h2>
         <form className="modal-form" onSubmit={handleSubmit}>
           <div className="form-grid">
-            <input name="fullName" placeholder="Full Name" onChange={handleChange} />
-            <input name="fatherName" placeholder="Father's Name" onChange={handleChange} />
-            <input name="institutionName" placeholder="Institution Name" onChange={handleChange} />
-            <input name="authorName" placeholder="Name of Author" onChange={handleChange} />
+            <input name="fullName" placeholder="Full Name" onChange={handleChange} required />
+            <input name="fatherName" placeholder="Father's Name" onChange={handleChange} required />
+            <input name="institutionName" placeholder="Institution Name" onChange={handleChange} required />
+            <input name="authorName" placeholder="Name of Author" onChange={handleChange} required />
             <input name="coAuthor1" placeholder="Name of Co-author 01" onChange={handleChange} />
             <input name="coAuthor2" placeholder="Name of Co-author 02" onChange={handleChange} />
             <input name="coAuthor3" placeholder="Name of Co-author 03" onChange={handleChange} />
-            <input name="researchTopic" placeholder="Topic of Research" onChange={handleChange} />
-           <input name="fieldOfStudy" placeholder="Field of Study" onChange={handleChange} /> 
+            <input name="researchTopic" placeholder="Topic of Research" onChange={handleChange} required />
+            <input name="fieldOfStudy" placeholder="Field of Study" onChange={handleChange} required />
           </div>
 
           <div className="upload-box">
             <span className="upload-plus">+</span>
             <p>Upload PDF</p>
-            <input name="pdf" type="file" accept=".pdf" onChange={handleChange} />
+            <input name="pdf" type="file" accept=".pdf" onChange={handleChange} required />
           </div>
 
           <button type="submit" className="submit-btn">Submit</button>
