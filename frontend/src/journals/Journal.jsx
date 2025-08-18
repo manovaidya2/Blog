@@ -67,13 +67,13 @@ const Journal = () => {
     const fetchData = async () => {
       try {
         const journalRes = await axios.get(
-          `http://localhost:5000/api/journals/getJournalWithBlogs/${journalId}`
+          `https://api.airfresearch.com/api/journals/getJournalWithBlogs/${journalId}`
         );
         setJournal(journalRes.data.journal);
 
         // fetch years/months
         const yearMonthRes = await axios.get(
-          `http://localhost:5000/api/blogs/getYearsMonths/${journalId}`
+          `https://api.airfresearch.com/api/blogs/getYearsMonths/${journalId}`
         );
         setYearMonthData(yearMonthRes.data);
       } catch (err) {
@@ -96,7 +96,7 @@ const Journal = () => {
     if (month) {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/blogs/getBlogsByJournalYearMonth/${journalId}/${selectedYear}/${month}`
+          `https://api.airfresearch.com/api/blogs/getBlogsByJournalYearMonth/${journalId}/${selectedYear}/${month}`
         );
         setBlogs(res.data);
       } catch (err) {
