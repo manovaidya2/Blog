@@ -4,7 +4,7 @@ import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SubmitModal from "./SubmitModal";
 import axios from "axios";
-import logo from "../image/logo.png";
+import logo from "../image/logo1.png";
 
 
 const Navbar = () => {

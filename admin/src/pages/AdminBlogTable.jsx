@@ -13,7 +13,7 @@ const AdminBlogTable = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get("https://api.airfresearch.com/api/blogs/getAllBlogs");
+      const res = await axios.get("http://localhost:5000/api/blogs/getAllBlogs");
       setBlogs(res.data);
     } catch (err) {
       console.error("Error fetching blogs", err);
@@ -23,7 +23,7 @@ const AdminBlogTable = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
     try {
-      await axios.delete(`https://api.airfresearch.com/api/blogs/deleteBlog/${id}`);
+      await axios.delete(`http://localhost:5000/api/blogs/deleteBlog/${id}`);
       alert("Blog deleted successfully!");
       setBlogs(blogs.filter((blog) => blog._id !== id));
     } catch (err) {
@@ -48,7 +48,8 @@ const AdminBlogTable = () => {
               <th>Journal</th>
               <th>Authors</th>
               <th>Author Name</th>
-
+              <th>Year</th>
+               <th>Month</th> 
               <th>Date</th>
               <th>Rich Content</th>
               <th>Actions</th>
@@ -59,7 +60,7 @@ const AdminBlogTable = () => {
               <tr key={blog._id}>
                 <td>
                   <img
-                    src={`https://api.airfresearch.com${blog.imgUrl}`}
+                    src={`http://localhost:5000${blog.imgUrl}`}
                     alt={blog.title}
                     className="blog-thumb"
                   />
@@ -68,6 +69,8 @@ const AdminBlogTable = () => {
                 <td>{blog.journalId?.name || "N/A"}</td>
                 <td>{blog.authors}</td>
                 <td>{blog.authorName}</td>
+                <td>{blog.year}</td>
+                <td>{blog.month}</td>
 
                 <td>{new Date(blog.createdAt).toLocaleDateString()}</td>
                 <td>

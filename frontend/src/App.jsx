@@ -22,6 +22,7 @@ import LatestBlogDetails from "./pages/LatestBlogDetails"
 
 import './App.css';
 import SearchResults from './components/SearchResults';
+import Archive from "./journals/Archive"
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
             <Route path="/journal/:journalId" element={<Journal />} />
             <Route path="/latest-blog/:blogId" element={<LatestBlogDetails />} />
             <Route path="/search" element={<SearchResults />} />
+            <Route path="/archive" element={<Archive />} />
 
 
         </Routes>

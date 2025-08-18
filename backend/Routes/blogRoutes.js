@@ -11,7 +11,11 @@ router.get('/getAllBlogs', blogController.getAllBlogs);
 router.get('/getBlogsByJournal/:journalId', blogController.getBlogsByJournal);
 router.get('/getBlogById/:id', blogController.getBlogById);
 
-// ✅ Add this line:
+// ✅ Extra routes for Year & Month filter
+router.get("/getYearsMonths/:journalId", blogController.getYearsAndMonthsByJournal);
+router.get("/getBlogsByJournalYearMonth/:journalId/:year/:month", blogController.getBlogsByJournalYearMonth);
+
+// ✅ Search
 router.get("/search", blogController.searchBlogs);
 
 // Update

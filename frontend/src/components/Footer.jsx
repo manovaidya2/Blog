@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../style/Footer.css';
 import { FaInstagram, FaTwitter, FaFacebookF } from 'react-icons/fa';
-import logo from "../image/logo.png";
+import logo from "../image/logo1.png";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 

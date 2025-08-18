@@ -14,13 +14,16 @@ const AdminBlogPage = () => {
   const [journals, setJournals] = useState([]);
   const [richContent, setRichContent] = useState("");
   const [authorName, setAuthorName] = useState("");
+  const [year, setYear] = useState("");
+const [month, setMonth] = useState("");
 
 
 
   // Fetch available journals
   const fetchJournals = async () => {
     try {
-      const res = await axios.get("https://api.airfresearch.com/api/journals/getJournals");
+      const res = await axios.get("http://localhost:5000/api/journals/getJournals");
+
       setJournals(res.data);
     } catch (error) {
       console.error("Failed to fetch journals", error);
@@ -40,6 +43,9 @@ const AdminBlogPage = () => {
   formData.append("content", content); // Plain text (optional)
   formData.append("richContent", richContent); // CKEditor HTML
   formData.append("journalId", journalId);
+  formData.append("year", year);
+formData.append("month", month);
+
 
   if (authors) formData.append("authors", authors);
   if (authorName) formData.append("authorName", authorName);
@@ -47,7 +53,7 @@ const AdminBlogPage = () => {
   if (imgUrl) formData.append("img", imgUrl); // File from input[type="file"]
 
   try {
-    const res = await axios.post("https://api.airfresearch.com/api/blogs/add", formData, {
+    const res = await axios.post("http://localhost:5000/api/blogs/add", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -144,6 +150,36 @@ const AdminBlogPage = () => {
   onChange={(e) => setImgUrl(e.target.files[0])}
   className="admin-input"
 />
+<input
+  type="number"
+  placeholder="Year"
+  value={year}
+  onChange={(e) => setYear(e.target.value)}
+  className="admin-input"
+  required
+/>
+
+<select
+  value={month}
+  onChange={(e) => setMonth(e.target.value)}
+  className="admin-select"
+  required
+>
+  <option value="">Select Month</option>
+  <option value="January">January</option>
+  <option value="February">February</option>
+  <option value="March">March</option>
+  <option value="April">April</option>
+  <option value="May">May</option>
+  <option value="June">June</option>
+  <option value="July">July</option>
+  <option value="August">August</option>
+  <option value="September">September</option>
+  <option value="October">October</option>
+  <option value="November">November</option>
+  <option value="December">December</option>
+</select>
+
 
 
         <button type="submit" className="admin-button">

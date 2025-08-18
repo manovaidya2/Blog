@@ -31,7 +31,10 @@ const BlogDetail = () => {
       </div>
       <div className="blog-meta">
         <p>Research Article / Written by {blog.authorName} </p>
-        <p>Published on {new Date(blog.createdAt).toLocaleDateString()}</p>
+        <p className="published-date">
+  Published on {blog.month} {blog.year}
+</p>
+
       </div>
       <h1 className="blog-title">{blog.title}</h1>
 

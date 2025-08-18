@@ -1,14 +1,14 @@
 const Blog = require("../Models/Blog");
 // controllers/blogController.js
-// controllers/blogController.js
+
 
 exports.addBlog = async (req, res) => {
   try {
-    const { title, content, journalId, authors, authorName, richContent } = req.body;
+    const { title, content, journalId, authors, authorName, richContent, year, month } = req.body;
     const imgFile = req.file;
 
-    if (!title || !content || !journalId) {
-      return res.status(400).json({ message: "Title, content, and journalId are required." });
+    if (!title || !content || !journalId || !year || !month) {
+      return res.status(400).json({ message: "Title, content, journalId, year, and month are required." });
     }
 
     const blog = new Blog({
@@ -17,7 +17,9 @@ exports.addBlog = async (req, res) => {
       richContent,
       journalId,
       authors: authors || Math.floor(Math.random() * 5) + 1,
-      authorName, // ✅ Store new field
+      authorName,
+      year,
+      month,
       imgUrl: imgFile
         ? `/uploads/${imgFile.filename}`
         : `/images/blog${Math.floor(Math.random() * 3) + 1}.jpg`,
@@ -109,4 +111,38 @@ exports.searchBlogs = async (req, res) => {
 };
 
 
+
+// ✅ Get all years & months for a journal
+exports.getYearsAndMonthsByJournal = async (req, res) => {
+  try {
+    const { journalId } = req.params;
+    const blogs = await Blog.find({ journalId });
+
+    const grouped = {};
+    blogs.forEach(blog => {
+      if (!grouped[blog.year]) grouped[blog.year] = new Set();
+      grouped[blog.year].add(blog.month);
+    });
+
+    const result = Object.keys(grouped).map(year => ({
+      year,
+      months: Array.from(grouped[year])
+    }));
+
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching years & months", error });
+  }
+};
+
+// ✅ Get blogs by journal + year + month
+exports.getBlogsByJournalYearMonth = async (req, res) => {
+  try {
+    const { journalId, year, month } = req.params;
+    const blogs = await Blog.find({ journalId, year, month }).sort({ createdAt: -1 });
+    res.status(200).json(blogs);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching blogs by year & month", error });
+  }
+};
 
