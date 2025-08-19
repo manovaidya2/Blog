@@ -6,7 +6,7 @@ import axios from "axios";
 const BlogHeader = ({ journal }) => (
   <div className="blog-header">
     <img
-      src={`http://localhost:5000/uploads/${journal.img}`}
+      src={`https://api.airfresearch.com${journal.img}`}
       alt={journal.name}
       className="banner-img"
     />
