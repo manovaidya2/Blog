@@ -3,10 +3,12 @@ import { useParams, Link } from "react-router-dom";
 import "../style/Journal.css";
 import axios from "axios";
 
+
+
 const BlogHeader = ({ journal }) => (
   <div className="blog-header">
     <img
-      src={`https://api.airfresearch.com${journal.img}`}
+      src={`https://api.airfresearch.com/uploads/${journal.img}`}
       alt={journal.name}
       className="banner-img"
     />
@@ -16,6 +18,7 @@ const BlogHeader = ({ journal }) => (
     </div>
   </div>
 );
+
 
 const BlogCard = ({ blog }) => (
   <div className="blog-card">
