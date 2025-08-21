@@ -6,7 +6,7 @@ import '../style/BlogPage.css';
 
 const BlogCard = ({ img, title, description, authors, id }) => (
   <div className="blog-card">
-    <img src={img} alt="blog" className="blog-img" />
+    <img src={img} alt="blog" className="blog-img1" />
     <div className="blog-content">
       <p className="meta">Research Paper • 5 min read</p>
       <h3>

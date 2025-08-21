@@ -22,7 +22,7 @@ const BlogHeader = ({ journal }) => (
 
 const BlogCard = ({ blog }) => (
   <div className="blog-card">
-    <img src={`https://api.airfresearch.com${blog.imgUrl}`} alt="blog" className="blog-img" />
+    <img src={`https://api.airfresearch.com${blog.imgUrl}`} alt="blog" className="blog-img1" />
     <div className="blog-content">
       <p className="meta">Research Paper • {Math.floor(Math.random() * 5 + 3)} min read</p>
       {blog._id && (
