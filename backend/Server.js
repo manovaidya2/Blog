@@ -45,7 +45,7 @@ app.use('/uploads', express.static('uploads'));
 
 // Health Check Route
 app.get("/", (req, res) => {
-  res.send("blog is live ✅");
+  res.send("Health of api 100% , Blog is live ✅");
 });
 
 // Routes
