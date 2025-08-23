@@ -18,12 +18,12 @@ jobs:
     - name: Set up SSH
       uses: webfactory/ssh-agent@v0.5.3
       with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}  # SSH key from GitHub Secrets
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}  # SSH private key from GitHub Secrets
 
     # Step 3: Deploy to VPS (for all three directories)
     - name: Deploy to VPS
       run: |
-        ssh -o StrictHostKeyChecking=no root@31.97.229.179"
+        ssh -o StrictHostKeyChecking=no root@31.97.229.179 "
           # Deploy to the frontend
           cd /var/www/Blog/frontend && 
           git pull origin main && 
