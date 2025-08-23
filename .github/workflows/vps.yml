@@ -23,7 +23,7 @@ jobs:
     # Step 3: Deploy to VPS (for all three directories)
     - name: Deploy to VPS
       run: |
-        ssh -o StrictHostKeyChecking=no root@82.29.164.96 "
+        ssh -o StrictHostKeyChecking=no root@31.97.229.179"
           # Deploy to the frontend
           cd /var/www/Blog/frontend && 
           git pull origin main && 
