@@ -41,5 +41,3 @@ jobs:
           git pull origin main && 
           npm install && 
           pm2 restart admin-blog"
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Private SSH key for authentication
