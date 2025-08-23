@@ -1,0 +1,32 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main  # Trigger deployment when changes are pushed to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # GitHub runner will be using an Ubuntu machine
+
+    steps:
+    # Step 1: Checkout code from GitHub repository
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Step 2: Set up SSH with private key
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}  # Your private SSH key from GitHub Secrets
+
+    # Step 3: Deploy to VPS
+    - name: Deploy to VPS
+      run: |
+        ssh -o StrictHostKeyChecking=no root@your-vps-ip "
+          cd /path/to/your/app &&  # Replace with the actual path to your app on VPS
+          git pull origin main &&  # Pull latest changes from GitHub repo
+          npm install &&  # Install dependencies
+          pm2 restart app_name"  # Replace 'app_name' with your PM2 app name
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # The private SSH key used for authentication
